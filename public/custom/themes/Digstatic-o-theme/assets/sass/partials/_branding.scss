@@ -1,0 +1,23 @@
+
+
+/* Background colors */
+.nav-portada{
+   // /* background-color: #fecfc9;*/
+}
+.banner-portada{
+  //  /*background-color: #c3c6c9;*/
+    background-color: #322de8;
+}
+header{
+    .row{
+
+    background-color: #32ddee;
+    }
+    img{
+    	&.portada{
+    		width: 100%;
+    		height:auto;
+    		min-width: 100%;
+    	}
+    }
+}

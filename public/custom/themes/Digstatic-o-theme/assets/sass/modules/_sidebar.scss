@@ -1,0 +1,21 @@
+/**
+*------------------------------------------------------------------------------------
+*    MODULES SIDEBAR
+*------------------------------------------------------------------------------------
+*/    
+
+.sidebar{
+    padding: 0 80px;
+    text-align: center;
+}
+.sidebar{
+    width:auto;
+    margin:auto;
+}
+
+@media screen and (min-width:720px) {
+    .sidebar{
+        width:30%;
+        float:left;
+    }
+}

@@ -1,0 +1,675 @@
+<?php
+/**
+ * functions.php
+ *
+ * The theme's functions and definitions.
+ */
+
+/**
+ * 1.0 - Defining constants.
+ *
+ */
+define( 'THEMEROOT', get_stylesheet_directory_uri() );
+define( 'IMAGES', THEMEROOT . '/assets/images' );
+define( 'SCRIPTS', THEMEROOT . '/js' );
+define( 'FRAMEWORK', get_template_directory() . '/framework' );
+
+define( 'MUFRAMEWORK', WP_CONTENT_DIR . '/admin/views' );
+
+/**
+ * 2.0 - Load the framework.
+ *
+ */
+require_once( FRAMEWORK . '/init.php' );
+
+
+/**
+ * 3.0 - Set up the content width value based on the theme's design. 
+ *
+ *
+ */
+if ( ! isset( $content_width ) ) {
+	$content_width = 1125;
+}
+
+/**
+ * 4.0 - Set up the theme's defaults.
+ *
+ *
+ */
+if ( ! function_exists( 'digg_setup' ) ) {
+	function digg_setup() {
+		/**
+		 * Make the theme available for translation.
+		 */
+		$lang_dir = THEMEROOT . '/languages';
+		load_theme_textdomain( 'digg', $lang_dir );
+
+		/**
+		 * Add support for post formats.
+		 *
+		 */
+		add_theme_support( 'post-formats',
+			array(
+				'gallery',
+				'link',
+				'image',
+				'quote',
+				'video',
+				'audio'
+			)
+		);
+
+
+		/**
+		 * Add support for automatic feed links.
+		 *
+		 */
+		add_theme_support( 'automatic-feed-links' );
+
+		/**
+		 * Add support for post thumbnails.
+		 *
+		 */
+		add_theme_support( 'post-thumbnails' );
+
+	}
+
+	add_action( 'after_theme_setup', 'digg_setup' );
+}
+
+?>
+<?php
+
+		add_theme_support( 'post-thumbnails', array( 'post', 'portfolio' ) );
+		/**
+		 * Register nav menus.
+		 * This adds a link to Appearance > Menus in the Dashboard. It must contain two 
+		 * parameters at least as in: 
+		 *
+		 * register_nav_menu( $location, $description ); 
+		 *
+		 * Additionally you can register different menus to be displayed in diffrent views 
+		 * as in:
+		 *
+		 * register_nav_menus(
+    	 * 		array(
+      	 *			'$location' => __( '$description' ),
+      	 *			'$location' => __( '$description' )
+    	 *		)
+  		 * );
+  		 *
+  		 * The location will be the menu's identification name for use within the code, 
+  		 * and the description will be a nice name used to display the menu's description 
+  		 * in the Dashboard.
+		 *
+		 * register_nav_menus(
+    	 *	array(
+      	 *		'header-menu' => __( 'Header Menu' ),
+      	 *		'extra-menu' => __( 'Extra Menu' )
+    	 *	)
+  		 *);
+  		 */
+
+ ?>
+<?php if ( function_exists( 'register_nav_menus' ) ) : ?>
+
+	<?php register_nav_menus(
+		  array(
+			'top_header_menu' => 'Menu at the very top of the page',
+			'bottom_header_menu' => 'Menu Below header Banner'
+			)); 
+	?>
+
+<?php endif; ?>
+
+
+
+<?php
+if ( ! function_exists( 'digg_post_meta' ) ) :
+/**
+ * ----------------------------------------------------------------------------------------
+ * 5.0 - Display meta information for a specific post.
+ * ----------------------------------------------------------------------------------------
+ */
+function digg_post_meta() {
+	
+
+	$tag_list = get_the_tag_list( '', __( ', ', 'digg' ) );
+
+    // taxonomies (categories and other terms)
+	$id = get_the_ID();
+	  $taxonomy_terms_list = "";
+	  foreach ( get_object_taxonomies( get_post_type($id) ) as $taxonomy ) {	  $terms_list = get_the_term_list( $id, $taxonomy, '', __( ', ', 'digg' ) );
+      if ( $taxonomy_terms_list && $terms_list )
+	    $taxonomy_terms_list .= __( ', ', 'digg' ).$terms_list;
+	  else
+		$taxonomy_terms_list .= $terms_list;
+	}
+
+	$date = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a>',
+		esc_url( get_permalink() ),
+		esc_attr( get_the_time() ),
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() )
+	);
+
+	$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
+		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+		esc_attr( sprintf( __( 'View all posts by %s', 'digg' ), get_the_author() ) ),
+		get_the_author()
+	);
+
+	// Translators: 1 is taxonmies terms, 2 is tag, 3 is the date and 4 is the author's name.
+	if ( $tag_list ) {
+		$utility_text = __( 'This entry was posted in %1$s and tagged %2$s on %3$s<span class="by-author"> by %4$s</span>.', 'digg' );
+	} elseif ( $taxonomy_terms_list ) {
+		$utility_text = __( 'This entry was posted in %1$s on %3$s<span class="by-author"> by %4$s</span>.', 'digg' );
+	} else {
+		$utility_text = __( 'This entry was posted on %3$s<span class="by-author"> by %4$s</span>.', 'digg' );
+	}
+
+    printf(
+		$utility_text,
+		$taxonomy_terms_list,
+	  	$tag_list,
+		$date,
+		$author
+	);
+
+	$id = get_the_ID();
+	$meta = get_post_meta($id, "_location", true);
+	if ( $meta ) {
+	   	echo '<h3 class="post-meta">' . $meta . '</h3>';
+	  }
+	$meta2 = get_post_meta($id, "_dresscode", true);
+	if ( $meta2 ) {
+	   	echo '<h3 class="post-meta">' . $meta2 . '</h3>';
+	   }
+}
+endif;
+?>
+<?php
+/**
+ * 5.0 - Display meta information for a specific post.
+ *
+ *
+ */
+if ( ! function_exists( 'digg_post_meta_b' ) ) {
+	function digg_post_meta_b() {
+		echo '<ul class="list-inline entry-meta">';
+
+		if ( get_post_type() === 'post' || 'snippets' || 'events' || 'portfolio' ) {
+
+
+			// If the post is sticky, mark it.
+			if ( is_sticky() ) {
+				echo '<li class="meta-featured-post"><i class="fa fa-thumb-tack"></i> ' . __( 'Sticky', 'digg' ) . ' </li>';
+			}
+
+			// Get the post author.
+			printf(
+				'<li class="meta-author"><a href="%1$s" rel="author">%2$s</a></li>',
+				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+				get_the_author()
+			);
+
+
+			// Get the date.
+			echo '<li class="meta-date"> ' . get_the_date() . ' </li>';
+
+			// The categories.
+			// $category_list = get_the_category_list( ', ' );
+			// if ( $category_list ) {
+			// 	echo '<li class="meta-categories"> ' . $category_list . ' </li>';
+			// }
+
+			// The tags.
+			$tag_list = get_the_tag_list( '', ', ' );
+			if ( $tag_list ) {
+				echo '<li class="meta-tags"> ' . $tag_list . ' </li>';
+			}
+			// Custom Taxonomies.
+			$id = get_the_ID();
+			$terms_listed = get_the_term_list( $id, 'languages' , '', ', ' );
+			if ( $terms_listed ) {
+				echo '<li class="meta-tax">' . $terms_listed . ' </li>';
+				
+			}
+
+
+
+
+			// Custom Taxonomies.
+			/**
+			 * 
+			 * $id = get_the_ID();
+			 * $terms_list = get_the_term_list( $id, 'languages' ,  ' ' );
+			 * if ( $terms_list ) {
+			 * 		echo '<li class="meta-tax">' . $terms_list . ' </li>';
+			 * }
+			 */
+
+			// Custom Taxonomies.
+			// Unlike custom taxonomies, custom metadata does not exist within this repo.
+			// To make use of the code below activate the plugin Sample Metabox for Events
+			
+			$id = get_the_ID();
+			$meta = get_post_meta($id, "_location", true);
+			if ( $meta ) {
+				echo '<li class="post-meta">' . $meta . '</li>';
+			}
+			$meta2 = get_post_meta($id, "_dresscode", true);
+			if ( $meta2 ) {
+				echo '<li class="post-meta">' . $meta2 . '</li>';
+			}
+
+			if ( is_user_logged_in() ) {
+			echo '<li>';
+			edit_post_link( __( 'Edit', 'digg' ), '<span class="meta-edit">', '</span>' );
+			echo '</li>';
+			}
+			
+			
+			
+
+			//Comments link.
+
+
+			// Edit link.
+			// if ( is_user_logged_in() ) {
+			// 	echo '<li>';
+			// 	edit_post_link( __( 'Edit', 'digg' ), '<span class="meta-edit">', '</span>' );
+			// 	echo '</li>';
+			// }
+		}
+
+	}
+}
+
+if ( ! function_exists( 'digg_comments' ) ) {
+	function digg_comments() {
+		echo '<div class="digg_comments">';
+		if ( get_post_type() === 'snippets' || 'events' || 'post' || 'portfolio' ) {
+
+			$id = get_the_ID();
+			if ( comments_open() ) :
+				echo '<li>';
+				echo '<span class="meta-reply">';
+				comments_popup_link( __( 'Leave a comment', 'digg' ), __( 'One comment so far', 'digg' ), __( 'View all % comments', 'digg' ) );
+				echo '</span>';
+				echo '</li>';
+			endif;
+		}
+		echo '</div><!-- end digg_comments -->';
+	}
+}
+
+if ( ! function_exists( 'digg_snippets_meta' ) ) {
+	function digg_snippets_meta() {
+		echo '<div class="snippets-meta">';
+		if ( get_post_type() === 'snippets' ) {
+
+			$id = get_the_ID();
+			$snippet_meta1 = get_post_meta($id, "_referal", true);
+			$snippet_meta3 = get_post_meta($id, "_alias", true);
+			if ( $snippet_meta1 && $snippet_meta3 ) {
+			echo '<h3 class="snippets-meta"><a href="' . $snippet_meta1 . '">' . $snippet_meta3 . '</a></h3>';
+			}
+			$snippet_meta2 = get_post_meta($id, "_description", true);
+			if ( $snippet_meta2 ) {
+			echo '<p class="snippets-meta">' . $snippet_meta2 . '</p>';
+			}
+		}
+		echo '</div><!--End snippets-meta-->';
+	}
+}
+/*	
+ *	-------------------------------------------------------------------------------------
+ *	http://wordpress.stackexchange.com/questions/84607/custom-taxonomy-and-tax-query?rq=1
+ *  -------------------------------------------------------------------------------------
+ */
+if ( ! function_exists( 'digg_query_args_a' ) ) {
+	function digg_query_args_a() {
+
+	    $diggTaxA = array(
+	        'post_type' => array( 'post', 'snippets' ),
+	        'posts_per_page' => 5,
+	        'tax_query' => array(
+	            array(
+	                'taxonomy' => 'languages',
+	                'field' => 'slug',
+	                'terms' => array( 'javascript' )
+	            )
+	        )
+	    );
+
+	    return $diggTaxA;
+	}
+}
+
+if ( ! function_exists( 'digg_query_args_b' ) ) {
+	function digg_query_args_b() {
+
+	    $diggTaxB = array(
+	        'post_type' => 'snippets',
+	        //'posts_per_page' => 5,
+	        'tax_query' => array(
+	            array(
+	                'taxonomy' => 'languages',
+	                'field' => 'slug',
+	                'terms' => array( 'javascript' )
+	            )
+	        )
+	    );
+
+	    return $diggTaxB;
+	}
+}
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * 6.0 - Display navigation to the next/previous set of posts.
+ * ----------------------------------------------------------------------------------------
+ */
+if ( ! function_exists( 'digg_paging_nav' ) ) {
+	function digg_paging_nav() { ?>
+		<ul>
+			<?php 
+				if ( get_previous_posts_link() ) : ?>
+				<li class="next">
+					<?php previous_posts_link( __( 'Newer Posts &rarr;', 'digg' ) ); ?>
+				</li>
+				<?php endif;
+			 ?>
+			<?php 
+				if ( get_next_posts_link() ) : ?>
+				<li class="previous">
+					<?php next_posts_link( __( '&larr; Older Posts', 'digg' ) ); ?>
+				</li>
+				<?php endif;
+			 ?>
+		</ul> <?php
+	}
+}
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * 7.0 - Register the widget areas.
+ * ----------------------------------------------------------------------------------------
+ */
+if ( ! function_exists( 'digg_widget_init' ) ) {
+	function digg_widget_init() {
+		if ( function_exists( 'register_sidebar' ) ) {
+			register_sidebar(
+				array(
+					'name' => __( 'Main Widget Area', 'digg' ),
+					'id' => 'sidebar-1',
+					'description' => __( 'Appears on posts and pages.', 'digg' ),
+					'before_widget' => '<div id="%1$s" class="widget %2$s">',
+					'after_widget' => '</div> <!-- end widget -->',
+					'before_title' => '<h5 class="widget-title">',
+					'after_title' => '</h5>',
+				)
+			);
+
+			register_sidebar(
+				array(
+					'name' => __( 'Footer Widget Area', 'digg' ),
+					'id' => 'sidebar-2',
+					'description' => __( 'Appears on the footer.', 'digg' ),
+					'before_widget' => '<div id="%1$s" class="widget col-sm-3 %2$s">',
+					'after_widget' => '</div> <!-- end widget -->',
+					'before_title' => '<h5 class="widget-title">',
+					'after_title' => '</h5>',
+				)
+			);
+		}
+	}
+
+	add_action( 'widgets_init', 'digg_widget_init' );
+}
+
+
+
+// /**
+//  * Create HTML list of nav menu items.
+//  * Replacement for the native Walker, using the description.
+//  *
+//  * @see    http://wordpress.stackexchange.com/q/14037/
+//  * @author toscho, http://toscho.de
+//  */
+// class Description_Walker extends Walker_Nav_Menu
+// {
+//     /**
+//      * Start the element output.
+//      *
+//      * @param  string $output Passed by reference. Used to append additional content.
+//      * @param  object $item   Menu item data object.
+//      * @param  int $depth     Depth of menu item. May be used for padding.
+//      * @param  array $args    Additional strings.
+//      * @return void
+//      */
+//     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 )
+//     {
+//         $classes     = empty ( $item->classes ) ? array () : (array) $item->classes;
+
+//         $class_names = join(
+//             ' '
+//         ,   apply_filters(
+//                 'nav_menu_css_class'
+//             ,   array_filter( $classes ), $item
+//             )
+//         );
+
+//         ! empty ( $class_names )
+//             and $class_names = ' class="'. esc_attr( $class_names ) . '"';
+
+//         $output .= "<li id='menu-item-$item->ID' $class_names>";
+
+//         $attributes  = '';
+
+//         ! empty( $item->attr_title )
+//             and $attributes .= ' title="'  . esc_attr( $item->attr_title ) .'"';
+//         ! empty( $item->target )
+//             and $attributes .= ' target="' . esc_attr( $item->target     ) .'"';
+//         ! empty( $item->xfn )
+//             and $attributes .= ' rel="'    . esc_attr( $item->xfn        ) .'"';
+//         ! empty( $item->url )
+//             and $attributes .= ' href="'   . esc_attr( $item->url        ) .'"';
+
+//         // insert description for top level elements only
+//         // you may change this
+//         $description = ( ! empty ( $item->description ) and 0 == $depth )
+//             ? '<small class="nav_desc">' . esc_attr( $item->description ) . '</small>' : '';
+
+//         $title = apply_filters( 'the_title', $item->title, $item->ID );
+
+//         //$item_output = $args->before
+//         //    . "<a $attributes>"
+//         //    . $args->link_before
+//         //    . $title
+//         //    . '</a> '
+//         //    . $args->link_after
+//         //    . $description
+//         //    . $args->after;
+
+//         // Since $output is called by reference we don't need to return anything.
+//         //$output .= apply_filters(
+//         //    'walker_nav_menu_start_el'
+//         //,   $item_output
+//         //,   $item
+//         //,   $depth
+//         //,   $args
+//         //);
+//     }
+// }
+
+
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * 8.0 - Function that validates a field's length.
+ * ----------------------------------------------------------------------------------------
+ */
+if ( ! function_exists( 'digg_validate_length' ) ) {
+	function digg_validate_length( $fieldValue, $minLength ) {
+		// First, remove trailing and leading whitespace
+		return ( strlen( trim( $fieldValue ) ) > $minLength );
+	}
+}
+
+
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * 9.0 - Include the generated CSS in the page header.
+ * ----------------------------------------------------------------------------------------
+ */
+if ( ! function_exists( 'digg_load_wp_head' ) ) {
+	function digg_load_wp_head() {
+		// Get the logos
+		$logo = IMAGES . '/icon_128x128@2x.png';
+		$logo_retina = IMAGES . '/icon_128x128@2x.png';
+
+		$logo_size = getimagesize( $logo );
+		?>
+		
+		<!-- Logo CSS -->
+		<style type="text/css">
+			.site-logo a {
+				background: transparent url( <?php echo $logo; ?> ) 0 0 no-repeat;
+				width: <?php echo $logo_size[0] ?>px;
+				height: <?php echo $logo_size[1] ?>px;
+				display: inline-block;
+			}
+
+			@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+			only screen and (-moz-min-device-pixel-ratio: 1.5),
+			only screen and (-o-min-device-pixel-ratio: 3/2),
+			only screen and (min-device-pixel-ratio: 1.5) {
+				.site-logo a {
+					background: transparent url( <?php echo $logo_retina; ?> ) 0 0 no-repeat;
+					background-size: <?php echo $logo_size[0]; ?>px <?php echo $logo_size[1]; ?>px;
+				}
+			}
+		</style>
+
+		<?php
+	}
+
+	add_action( 'wp_head', 'digg_load_wp_head' );
+}
+
+
+
+
+add_action('admin_head-nav-menus.php', 'wpclean_add_metabox_menu_posttype_archive');
+
+function wpclean_add_metabox_menu_posttype_archive() {
+add_meta_box('wpclean-metabox-nav-menu-posttype', 'Custom Post Type Archives', 'wpclean_metabox_menu_posttype_archive', 'nav-menus', 'side', 'default');
+}
+
+function wpclean_metabox_menu_posttype_archive() {
+$post_types = get_post_types(array('show_in_nav_menus' => true, 'has_archive' => true), 'object');
+
+if ($post_types) :
+    $items = array();
+    $loop_index = 999999;
+
+    foreach ($post_types as $post_type) {
+        $item = new stdClass();
+        $loop_index++;
+
+        $item->object_id = $loop_index;
+        $item->db_id = 0;
+        $item->object = 'post_type_' . $post_type->query_var;
+        $item->menu_item_parent = 0;
+        $item->type = 'custom';
+        $item->title = $post_type->labels->name;
+        $item->url = get_post_type_archive_link($post_type->query_var);
+        $item->target = '';
+        $item->attr_title = '';
+        $item->classes = array();
+        $item->xfn = '';
+
+        $items[] = $item;
+    }
+
+    $walker = new Walker_Nav_Menu_Checklist(array());
+
+    echo '<div id="posttype-archive" class="posttypediv">';
+    echo '<div id="tabs-panel-posttype-archive" class="tabs-panel tabs-panel-active">';
+    echo '<ul id="posttype-archive-checklist" class="categorychecklist form-no-clear">';
+    echo walk_nav_menu_tree(array_map('wp_setup_nav_menu_item', $items), 0, (object) array('walker' => $walker));
+    echo '</ul>';
+    echo '</div>';
+    echo '</div>';
+
+    echo '<p class="button-controls">';
+    echo '<span class="add-to-menu">';
+    echo '<input type="submit"' . disabled(1, 0) . ' class="button-secondary submit-add-to-menu right" value="' . __('Add to Menu', 'digg') . '" name="add-posttype-archive-menu-item" id="submit-posttype-archive" />';
+    echo '<span class="spinner"></span>';
+    echo '</span>';
+    echo '</p>';
+
+endif;
+}
+
+
+// add_action( 'add_meta_boxes', 'acme_custom_meta_box' );
+// /**
+//  * Defines a custom post meta box that displays directly below the
+//  * post editor in the WordPress dashboard.
+//  *
+//  * @link    http://tommcfarlin.com/wordpress-meta-boxes-aiming-for-simplicity/
+//  */
+// function acme_custom_meta_box() {
+
+// 	add_meta_box(
+// 		'acme-custom-meta-box',
+// 		'Acme Meta Box',
+// 		'acme_render_meta_box',
+// 		'post',
+// 		'normal',
+// 		'core'
+// 	);
+
+// }
+// /**
+//  * Renders the content to be displayed in the "Acme Meta Box" by requiring
+//  * the file that is responsible for rendering the content.
+//  *
+//  * @link    http://tommcfarlin.com/wordpress-meta-boxes-aiming-for-simplicity/
+//  */
+// function acme_render_meta_box() {
+// 	require_once get_template_directory() . '/acme-meta-box-display.php';
+// }
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * 10.0 - Load the custom scripts for the theme.
+ * ----------------------------------------------------------------------------------------
+ */
+// if ( ! function_exists( 'digg_scripts' ) ) {
+// 	function digg_scripts() {
+// 		// Adds support for pages with threaded comments
+// 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+// 			wp_enqueue_script( 'comment-reply' );
+// 		}
+
+// 		// Register scripts
+// 		wp_register_script( 'bootstrap-js', 'http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js', array( 'jquery' ), false, true );
+// 		wp_register_script( 'digg-custom', SCRIPTS . '/scripts.js', array( 'jquery' ), false, true );
+
+// 		// Load the custom scripts
+// 		wp_enqueue_script( 'bootstrap-js' );
+// 		wp_enqueue_script( 'digg-custom' );
+
+// 		// Load the stylesheets
+// 		wp_enqueue_style( 'font-awesome', THEMEROOT . '/css/font-awesome.min.css' );
+// 		wp_enqueue_style( 'digg-master', THEMEROOT . '/css/master.css' );
+// 	}
+
+// 	add_action( 'wp_enqueue_scripts', 'digg_scripts' );
+//}

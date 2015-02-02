@@ -1,0 +1,14 @@
+{
+	"require": {
+		"slim/slim": "2.5.*",
+		"twig/twig": "1.16.*"
+	},
+	"autoload": {
+		"psr-0": {
+			"app": ""
+		}
+	},
+   "require-dev": {
+        "phpdocumentor/phpdocumentor": "2.7.0"
+    }
+}

@@ -1,0 +1,32 @@
+/**
+ * Theme Name: Digstatic O Theme
+ * Theme URI: https://gostak.io/
+ * Author: Maripac
+ * Author URI: https://gostak.io/
+ * Description: My theme for WordPress with autoloading functionality using composer for dependencies declaration and API integration.
+ * Version: 1.0
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Tags: composer, slim
+ */
+
+
+
+
+@import "partials/base";
+@import "partials/config";
+
+@import "modules/reset";
+@import "modules/text";
+@import "modules/lists";
+@import "modules/snippets";
+@import "modules/sidebar";
+@import "modules/widgets";
+@import "modules/states";
+
+
+@import "partials/layout";
+@import "partials/branding";
+
+
+

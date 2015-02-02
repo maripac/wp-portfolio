@@ -1,0 +1,39 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+*.log
+.htaccess
+sitemap.xml
+sitemap.xml.gz
+config/env/development.php
+vendor/
+docs/
+db/
+public/custom/plugins/wp-remove-category-base/
+public/custom/plugins/syntaxhighlighter/
+public/custom/themes/Digstatic-o-theme/assets/.sass-cache/
+public/custom/themes/Digstatic-o-theme/assets/node_modules/
+public/custom/themes/Digstatic-o-theme/assets/sass/base/
+public/custom/themes/Digstatic-o-theme/assets/sass/neat/
+public/custom/themes/Digstatic-o-theme/assets/sass/bourbon/
+public/custom/themes/Digstatic-o-theme/assets/js/
+public/custom/uploads/

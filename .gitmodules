@@ -1,0 +1,3 @@
+[submodule "public/wp-core"]
+	path = public/wp-core
+	url = git://github.com/WordPress/WordPress.git

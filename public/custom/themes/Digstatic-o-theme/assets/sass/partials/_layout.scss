@@ -1,0 +1,97 @@
+/**
+*------------------------------------------------------------------------------------
+*	LAYOUT PARTIAL
+*------------------------------------------------------------------------------------
+*/	
+
+.container{
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: auto;
+    overflow:hidden;
+	& > .row {
+		margin-left: -20px;
+		margin-right: -20px;
+		overflow: hidden;
+		}
+	&-frame{
+			padding-left: 40px;
+			padding-right: 40px;
+			margin: auto;
+	& > .row {
+		margin-left: -20px;
+		margin-right: -20px;
+		overflow: hidden;
+		&.top-nav-row{
+			margin-top:-4em;
+			padding-bottom: 3.6em;
+			}
+		}
+	}
+}
+
+.banner-portada .site-logo{
+    float:right;
+}
+.banner-portada{
+    width:100%;
+    overflow:hidden;
+    float:right;
+}
+.nav-portada{
+    width:100%;
+    overflow: hidden;
+}
+.copyright{
+    width:100%;
+    float: right;
+}
+@media screen and (min-width:540px) {
+
+
+    .banner-portada .site-logo a{
+        max-width: 100%;
+        background-size: 100% auto;
+    }
+     .wrapper-main{
+        margin:auto;
+     }
+}
+
+@media screen and (min-width:960px) {
+	article{
+		padding-left:20px;
+	}
+	.copyright{
+		p{
+			padding-left:20px;
+		}
+	}
+}
+
+
+@media screen and (min-width:720px) {
+     .wrapper-main{
+        width:70%;
+        float: left;
+     }
+     .copyright{
+        width:70%;
+     }
+}
+
+@media screen and (min-width:960px) {
+
+    .banner-portada{
+        width:30%;
+    }
+    .nav-portada{
+        width:70%;
+    }
+}
+
+@media screen and (min-width:1240px) {
+
+}
+
+
