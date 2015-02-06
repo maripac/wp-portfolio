@@ -82,8 +82,8 @@ class ContentTax
 			'sort' 						 => true,
 		 	'query_var'  => true,
  			'rewrite' => ['slug' => $this->taxonomy],
- 			'args' => array( 'orderby' => 'term_order' ), 
- 			'hierarchical' => true
+ 			'args' => array( 'orderby' => 'term_order' ) 
+ 			//'hierarchical' => true
  			//=> ['slug' => $this->taxonomy]
  			//'rewrite'	 => $this->taxonomy['slug'] 
  			

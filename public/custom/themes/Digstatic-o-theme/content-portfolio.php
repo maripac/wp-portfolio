@@ -1,76 +1,136 @@
 <?php
 /**
- * content.php
+ * content-portfolio.php
  * The default template for displaying content.
  *
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<!-- Article header-->
-	<header class="entry-header"> <?php
-			// If the post has a thumbnail and it's not password protected
-			// then display the thumbnail
-			if ( has_post_thumbnail() && ! post_password_required() ) : ?>
-				<figure class="entry-thumbnail"><?php the_post_thumbnail(); ?></figure>
-			<?php endif; 
+<!--<div class="hover-tile-outer">
+  <div class="hover-tile-container">
+    <div class="hover-tile hover-tile-visible"></div>
+    <div class="hover-tile hover-tile-hidden">
+      <h4>Hidden Copy</h4>
+      <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem sit amet, consectetur adipisicing elit. Unde, provident eligendi.</p>
+    </div>
+  </div>
+</div>-->
 
-			// If it's single page, display the title
-			// Else, display the title in a link
-			if ( is_single() ) : ?>
-				<h1><?php the_title(); ?></h1>
+<?php if ( ! is_single() ): ?>
+<?php if ( has_post_thumbnail( $post->ID ) ) { ?>
+<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
+
+  <div class="hover-tile-outer" style="background-image: url('<?php echo $image[0]; ?>')">
+  	<div class="hover-tile-container">
+    	<div class="hover-tile hover-tile-visible"></div>
+    	<div class="hover-tile hover-tile-hidden">
+      		<a id="post-<?php the_ID(); ?>" href="<?php the_permalink(); ?>" rel="bookmark">
+      			<h2><?php the_title(); ?></h2>
+      		</a>
+      		<p>	<?php// digg_post_meta_b(); ?></p>
+      		<div>	<?php
+				digg_portfolio_meta_b();
+				?>
+      		</div>
+    	</div>
+  	</div>
+  </div>
+<?php } else { ?>
+	    	<div class="">
+      		<a id="post-<?php the_ID(); ?>" href="<?php the_permalink(); ?>" rel="bookmark">
+      			<h2><?php the_title(); ?></h2>
+      		</a>
+      		<p>	<?php digg_post_meta_b(); ?></p>
+			<?php
+			// if ( is_search() ) {
+			// 	the_excerpt();
+			// } else {
+				the_content( __( 'Continue reading &rarr;', 'digg' ) );
+
+			// 	wp_link_pages();
+			// }
+			?>
+      		
+    	</div>
+<?php } ?>
+
+
+
+
+<?php else : ?>
+<div class="wrapper-main">
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<header class="entry-header">
+		<h1 class="entry-title"><?php the_title(); ?></h1>
+		</header>
+		<div class="main-portfolio">
+		<?php
+			// Display the meta information
+			digg_post_meta_date();
+		?>
+		<?php
+		// if ( is_search() ) {
+		// 	the_excerpt();
+		// } else {
+			the_content( __( 'Continue reading &rarr;', 'digg' ) );
+
+		// 	wp_link_pages();
+		// }
+		?>
 				
-				<?php
-					// Display the meta information
-					digg_snippets_meta();
-				?>
-					
-				<?php
-					// Display the meta information
-					digg_post_meta_b();
-				?>
-
-	</header><!-- end entry-header -->
-		<!-- Article content -->
+		</div>
 
 
 
-
-
-					<?php
-						// if ( is_search() ) {
-						// 	the_excerpt();
-						// } else {
-							the_content( __( 'Continue reading &rarr;', 'digg' ) );
-
-						// 	wp_link_pages();
-						// }
-					?>
-					<?php
-						/* translators: %s: Name of current post */
-						// the_content( sprintf(
-						// 	__( 'Continue reading %s', 'twentyfifteen' ),
-						// 	the_title( '<span class="screen-reader-text">', '</span>', false )
-						// ) );
-
-
-					?>
-
-
-		<?php else : ?>
-			<h1><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-
-
-
-				<?php
-					// Display the meta information
-					digg_post_meta_b();
-				?>
+	
 			
-	</header><!-- end entry-header -->
-	<!-- Article content -->
 
-	<footer class="entry-footer">
+		
+
+
+
+
+
+
+
+		<footer class="entry-footer">
+
+
+			<div class="footer-nav" style="width:100%;">
+			<div class="before">	
+			<?php previous_post_link( '%link', '&laquo Previous Entry', FALSE ); ?>
+			</div>
+			<div class="after">	
+			<?php next_post_link( '%link', 'Next Entry &raquo', FALSE ); ?>
+			</div>
+
+			
+			</div>
+
+		</footer> <!-- end entry-footer -->
+	</article>	<!-- end Article -->
+
+
+</div> <!--End wrapper-main-->
+<div class="sidebar aside-portfolio-desc">
+
+	
+	<?php
+	digg_portfolio_meta_b();
+	?>
+	<div>	
+	<?php
+		// Display the meta information
+		digg_snippets_meta();
+	?>
+		
+	<?php
+		// Display the meta information
+		digg_post_meta_d();
+	?>
+
+
+	</div><!-- end entry-header -->
 	<?php 
 		// If we have a single page and the author bio exists, display it
 		if ( is_single() && get_the_author_meta( 'description' ) ) {
@@ -78,10 +138,6 @@
 			echo '<p>' . the_author_meta( 'description' ) . '</p>';
 		}
 	?>
-	<?php
-		// Display the meta information
-		digg_comments();
-	?>
-	</footer> <!-- end entry-footer -->
-	<?php endif; ?>
-</article>
+				
+</div>
+<?php endif; ?>

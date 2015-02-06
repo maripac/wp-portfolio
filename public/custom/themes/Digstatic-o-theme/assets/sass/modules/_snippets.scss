@@ -4,27 +4,6 @@
 *------------------------------------------------------------------------------------
 */	
 
-// .term,
-// .term .chrome,
-// .term .chrome .btn{ border:solid 2px #777;}
-// .term{ display: block; border-radius: 4px; margin-bottom:10px; text-align: left; }
-// .term .shell{ min-height:130px; overflow:hidden; }
-// .term .chrome{ height:34px; padding-left:4px; border-top:0 none; border-right:0 none; border-left:0 none; }
-// .term .chrome:before{ content:" "; display:inline-block; height:100%; vertical-align:middle; }
-// aside.widget.widget_pages div.term .chrome .btn, aside.widget.widget_archive div.term .chrome .btn{ display:inline-block; vertical-align:middle; width:8px; height:8px; border-radius:100%; margin-left:2px; margin-right:3px; }
-// .term .chrome .btn{ display:inline-block; vertical-align:middle; width:8px; height:8px; border-radius:100%; }
-// .term .shell{ padding:10px; color:#777; }
-// .term .workshopper{ background: #fff; padding:2px; }
-// .term .workshopper code{ border:0 none; }
-// .term code{ display:block; margin:12px 0; padding: 4px 10px; border-left: 8px solid #F7DA03; border-radius: 0; background:none; }
-// .term .chrome .btn:hover{ border-color:#404040;}
-// .term .chrome .btn.close:hover{ background:red; }
-// .term .chrome .btn.max:hover{ background:green; }
-// .term .chrome .btn.min:hover{ background:#F7DA03; }
-// .term.max{ top:0; left:0; position:absolute; width:100%; height:100%; max-width:none; }
-// .term.min{ position:absolute; bottom:0; }
-// .term.min .shell{ min-height:0; height:0; padding:0; }
-// .term.min .chrome{ border:0 none; }
 .term{
 	border:solid 2px #777;
 	display: block; 
@@ -50,6 +29,16 @@
 		.chrome{
 			border:0 none; 
 		}
+	}
+	&.index{
+		.shell{ 
+			min-height:130px; 
+			max-height:240px;
+			overflow:hidden;
+			overflow-y:scroll;
+			padding:0px; 
+			color:#777; 
+		}
 	}	
 	.chrome{
 		border:solid 2px #777;
@@ -68,10 +57,10 @@
 			border:solid 2px #777;
 			display:inline-block; 
 			vertical-align:middle; 
-			width:8px; height:8px; 
+			width:12px; height:12px; 
 			border-radius:100%; 
 			margin-left:2px; 
-			margin-right:3px;
+			margin-right:4px;
 			&:hover{ 
 				border-color:#404040;
 			}
@@ -95,7 +84,7 @@
 	.shell{ 
 		min-height:130px; 
 		overflow:hidden;
-		padding:10px; 
+		padding-left:0px; 
 		color:#777; 
 	}
 	.workshopper{ 
@@ -107,10 +96,26 @@
 	}
 	code{ 
 		display:block; 
-		margin:12px 0; 
-		padding: 10px 4px; 
+		margin:0px 0 0 4px; 
+		padding: 18px 10px; 
 		border-left: 8px solid #F7DA03; 
 		border-radius: 0; 
 		background:none; 
 	}
+}
+
+.term .shell .syntaxhighlighter{
+	margin-top: -0.15em !important;
+	margin-bottom: 0em !important;
+	table td.gutter .line {
+		  text-align: right !important;
+		  padding: 0 0.25em 0 0.25em !important;
+		 &:first-child{
+		 	padding: 1em 0.25em 0em 0.25em !important;
+		 }
+ 		 &:last-child{
+		 	padding: 0em 0.25em 1em 0.25em !important;
+		 }
+
+	} 
 }

@@ -1,0 +1,42 @@
+/**
+*------------------------------------------------------------------------------------
+*	GRID SETTINGS FIRST BOURBON THEN _grid-settings.scss next NEAT, and next BITTERS
+*   
+*------------------------------------------------------------------------------------
+*/	
+
+// @import "../neat/neat-helpers"; // or "neat-helpers" when in Rails
+
+// // Change the grid settings
+// $column: 90px;
+// $gutter: 30px;
+// $grid-columns: 10;
+// $max-width: em(1088);
+
+// // Define your breakpoints
+// $tablet: new-breakpoint(max-width 768px 8);
+// $mobile: new-breakpoint(max-width 480px 4);
+
+
+$visual-grid: false !global;
+$visual-grid-color: red;
+$visual-grid-index: back;
+$visual-grid-opacity: 0.15;	
+$max-width:100%;
+
+
+@import "../neat/neat-helpers"; // or "../neat/neat-helpers" when not in Rails
+
+// Neat Overrides
+// $column: 90px;
+// $gutter: 30px;
+// $grid-columns: 12;
+// $max-width: em(1088);
+
+// Neat Breakpoints
+$medium-screen: em(640);
+$large-screen: em(860);
+
+$medium-screen-up: new-breakpoint(min-width $medium-screen 12);
+$large-screen-up: new-breakpoint(min-width $large-screen 12);
+

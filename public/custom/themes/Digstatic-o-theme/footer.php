@@ -16,7 +16,8 @@
 	<footer class="site-footer">
 		<div class="container-frame">
 			<div class="row">
-				<?php// get_sidebar( 'footer' ); ?>
+
+
 
 				<div class="copyright">
 					<p>
@@ -84,6 +85,24 @@ function burgerTime() {
 
 
 </script>
+
+<?php if( is_post_type_archive('portfolio') || is_singular( 'portfolio' )  ) : // Checks if this version of WP supports menus ?>
+	<script>
+		$(document).ready(function() {
+		  var menuToggle = $('#js-mobile-menu').unbind();
+		  $('#js-navigation-menu').removeClass("show");
+
+		  menuToggle.on('click', function(e) {
+		    e.preventDefault();
+		    $('#js-navigation-menu').slideToggle(function(){
+		      if($('#js-navigation-menu').is(':hidden')) {
+		        $('#js-navigation-menu').removeAttr('style');
+		      }
+		    });
+		  });
+		});
+	</script>
+<?php endif; // ends the conditional argument ?>
 
 </body>
 

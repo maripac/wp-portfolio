@@ -1,0 +1,7 @@
+$base__font-size: 18 !default;
+$base__line: 28 !default;
+
+
+@function calc-em($target, $context: $base__font-size) {
+    @return ($target / $context) * 1em;
+}

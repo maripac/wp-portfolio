@@ -11,22 +11,38 @@
  */
 
 
+//Non-render sass
+@import "library/colors";
+@import "library/baseline";
+@import "library/fonts";
 
 
-@import "partials/base";
-@import "partials/config";
 
-@import "modules/reset";
-@import "modules/text";
-@import "modules/lists";
-@import "modules/snippets";
-@import "modules/sidebar";
-@import "modules/widgets";
-@import "modules/states";
+//Vendor assets
+@import "bourbon/bourbon";
+@import "library/grid-settings";
+@import "neat/neat";
+@import "library/bitters";
+
+//Normalize
+@import "library/reset";
+
+//Non-render sass modifier overwrites defaults
+
+@import "library/config";
+
+//Includes
+// @import "partials/base";
 
 
 @import "partials/layout";
-@import "partials/branding";
+
+@import "modules/snippets";
+@import "modules/offcanvas";
+
+@import "modules/portfolio";
+@import "modules/grid-images";
+
 
 
 

@@ -1,6 +1,6 @@
 <?php 
 /**
- * archive.php
+ * archive-snippets.php
  *
  * The template for displaying archive pages.
  */
@@ -22,16 +22,11 @@
 				get_template_part( 'content-snippets', get_post_format() );
 
 			// End the loop.
-			endwhile;
-			digg_paging_nav();
-
-			// Previous/next page navigation.
-			// the_posts_pagination( array(
-			// 	'prev_text'          => __( 'Previous page', 'twentyfifteen' ),
-			// 	'next_text'          => __( 'Next page', 'twentyfifteen' ),
-			// 	'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>',
-			// ) );
-
+			endwhile; ?>
+			<div class="paging-nav">
+				<?php digg_paging_nav(); ?>
+			</div>
+		<?php
 		// If no content, include the "No posts found" template.
 		else :
 			get_template_part( 'content-snippets', 'none' );
@@ -39,19 +34,27 @@
 		endif;
 		?>
 
-
-
-
-			<?php/* while( have_posts() ) : the_post(); */?>
-				<?php/* get_template_part( 'content', get_post_format() ); */?>
-			<?php/* endwhile; */?>
-
-			<?php/* digg_paging_nav(); */?>
-		<?php/* else : */?>
-			<?php/* get_template_part( 'content', 'none' ); */?>
-		<?php/* endif; */?>
 	</div> <!-- end wrapper-main -->
+<?php //endif; ?>
+<?php
 
+// 	// If it's single page, display the title
+// 	// Else, display the title in a link
+// if ( is_single() ) { 
+// 		get_footer(); 
+// } else { 
+//  get_sidebar(); 
+//  get_footer(); 
+// } 
+
+
+// 
+// if ( ! is_single() ) {
+//   get_sidebar();
+// } else {
+//   get_footer();
+// } 
+
+?>
 <?php get_sidebar(); ?>
-
 <?php get_footer(); ?>

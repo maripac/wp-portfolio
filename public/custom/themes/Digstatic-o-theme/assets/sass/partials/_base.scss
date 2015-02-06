@@ -3,56 +3,31 @@
 *  BASE PARTIAL  
 *------------------------------------------------------------------------------------
 */       
-
-
-$color__primary--light: #DD0000 !default;
-$color__primary: #C10000 !default;
-$color__primary--dark: #990000 !default;
-
-$base__font-size: 16 !default;
-$base__line: 20 !default;
-
-
-@function calc-em($target, $context: $base__font-size) {
-    @return ($target / $context) * 1em;
+img.portada{
+	margin-top:-2.4em;
 }
-
-
-$font__campton--xl: 'camptonbold_demo';
-$style-name_xl: camptonbold_demo;
-$file_xl: 'campton-bolddemo-webfont';
-$category_xl: sans-serif;
-
-$font__campton--s: 'camptonlight_demo';
-$style-name_s: camptonlight_demo;
-$file_s: 'campton-lightdemo-webfont';
-$category_s: sans-serif;
-
-
-@mixin font-face($style-name, $file, $category:"") {
-    $filepath: "assets/fonts/" + $file;
-    @font-face {
-        font-family: "#{$style-name}";
-        src: url($filepath + ".eot");
-        src: url($filepath + ".eot?#iefix") format('embedded-opentype'), url($filepath + ".woff") format('woff'), url($filepath + ".ttf")  format('truetype'), url($filepath + ".svg#" + $style-name + "") format('svg');
-    }
-    %#{$style-name} {
-        font: {
-            @if $category != "" {
-                family: "#{$style-name}", #{$category};
-            }
-            @else {
-                family: "#{$style-name}";
-                weight: normal;
-            }
-        }
-    }
+.site-navigation ul{
+	li {
+		padding: 0;
+		margin: 0;
+		line-height: 1em; 
+		a {
+		//color: #322de8;
+		}
+	}
+} 
+#site-wrapper{
+	&:hover{
+		background: url('assets/images/gridbgtr28.png');
+		.site-header a img.portada{
+			opacity: 0.8;
+		}
+		.toggle-nav{
+			opacity: 1;
+			z-index: 999;
+		}
+	}
 }
-@include font-face($style-name_s, $file_s, $category_s);
-@include font-face($style-name_xl, $file_xl, $category_xl);
-
-
-
 
 
 

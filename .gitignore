@@ -30,6 +30,8 @@ docs/
 db/
 public/custom/plugins/wp-remove-category-base/
 public/custom/plugins/syntaxhighlighter/
+public/custom/plugins/query-monitor/
+public/custom/themes/CMB2-Example-Theme/
 public/custom/themes/Digstatic-o-theme/assets/.sass-cache/
 public/custom/themes/Digstatic-o-theme/assets/node_modules/
 public/custom/themes/Digstatic-o-theme/assets/sass/base/

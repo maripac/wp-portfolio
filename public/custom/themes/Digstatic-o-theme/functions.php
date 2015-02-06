@@ -117,7 +117,10 @@ if ( ! function_exists( 'digg_setup' ) ) {
 	<?php register_nav_menus(
 		  array(
 			'top_header_menu' => 'Menu at the very top of the page',
-			'bottom_header_menu' => 'Menu Below header Banner'
+			'bottom_header_menu' => 'Menu Below header Banner',
+			'front_grid_menu' => 'Front Page Sections',
+			'top_header_crum' => 'Breadcrum Navigation for Portfolio Archive'
+			//'navget' => 'Hardcoded Nav Menu'
 			)); 
 	?>
 
@@ -240,6 +243,8 @@ if ( ! function_exists( 'digg_post_meta_b' ) ) {
 
 
 
+
+
 			// Custom Taxonomies.
 			/**
 			 * 
@@ -287,6 +292,144 @@ if ( ! function_exists( 'digg_post_meta_b' ) ) {
 	}
 }
 
+
+
+/**
+ * 5.0 - Display meta information for a specific post.
+ *
+ *
+ */
+if ( ! function_exists( 'digg_post_meta_c' ) ) {
+	function digg_post_meta_c() {
+		//echo '<ul class="list-inline entry-meta">';
+
+		if ( get_post_type() === 'post' || 'snippets' || 'events' || 'portfolio' ) {
+
+
+			// If the post is sticky, mark it.
+			//if ( is_sticky() ) {
+			//	echo '<li class="meta-featured-post"><i class="fa fa-thumb-tack"></i> ' . __( 'Sticky', 'digg' ) . ' </li>';
+			//}
+
+			// Get the post author.
+			//printf(
+			//	'<li class="meta-author"><a href="%1$s" rel="author">%2$s</a></li>',
+			//	esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+			//	get_the_author()
+			//);
+
+
+			// Get the date.
+			echo '<span class="meta-date"> ' . get_the_date() . ' </span>';
+
+			// The categories.
+			// $category_list = get_the_category_list( ', ' );
+			// if ( $category_list ) {
+			// 	echo '<li class="meta-categories"> ' . $category_list . ' </li>';
+			// }
+
+			// The tags.
+			//$tag_list = get_the_tag_list( '', ', ' );
+			///if ( $tag_list ) {
+			//	echo '<li class="meta-tags"> ' . $tag_list . ' </li>';
+			//}
+			// Custom Taxonomies.
+			$id = get_the_ID();
+			$terms_listed = get_the_term_list( $id, 'languages' , '<li class="meta-tax">', '</li>' );
+			if ( $terms_listed ) {
+				echo '<ul class="meta-lang">' . $terms_listed . ' </ul>';
+				
+			}
+			$id = get_the_ID();
+			$terms_listed = get_the_term_list( $id, 'fields' , '<li class="meta-tax">', '</li>' );
+			if ( $terms_listed ) {
+				echo '<ul class="meta-fields">' . $terms_listed . ' </ul>';
+				
+			}
+
+
+
+
+			// Custom Taxonomies.
+			/**
+			 * 
+			 * $id = get_the_ID();
+			 * $terms_list = get_the_term_list( $id, 'languages' ,  ' ' );
+			 * if ( $terms_list ) {
+			 * 		echo '<li class="meta-tax">' . $terms_list . ' </li>';
+			 * }
+			 */
+
+			// Custom Taxonomies.
+			// Unlike custom taxonomies, custom metadata does not exist within this repo.
+			// To make use of the code below activate the plugin Sample Metabox for Events
+			
+			// $id = get_the_ID();
+			// $meta = get_post_meta($id, "_location", true);
+			// if ( $meta ) {
+			// 	echo '<li class="post-meta">' . $meta . '</li>';
+			// }
+			// $meta2 = get_post_meta($id, "_dresscode", true);
+			// if ( $meta2 ) {
+			// 	echo '<li class="post-meta">' . $meta2 . '</li>';
+			// }
+
+			// if ( is_user_logged_in() ) {
+			// echo '<li>';
+			// edit_post_link( __( 'Edit', 'digg' ), '<span class="meta-edit">', '</span>' );
+			// echo '</li>';
+			// }
+			
+			
+			
+
+			//Comments link.
+
+
+			// Edit link.
+			// if ( is_user_logged_in() ) {
+			// 	echo '<li>';
+			// 	edit_post_link( __( 'Edit', 'digg' ), '<span class="meta-edit">', '</span>' );
+			// 	echo '</li>';
+			// }
+		}
+	}
+}
+if ( ! function_exists( 'digg_post_meta_d' ) ) {
+	function digg_post_meta_d() {
+		//echo '<ul class="list-inline entry-meta">';
+
+		if ( get_post_type() === 'post' || 'snippets' || 'events' || 'portfolio' ) {
+
+			$id = get_the_ID();
+			$terms_listed = get_the_term_list( $id, 'languages' , '<li class="meta-tax">', '</li>' );
+			if ( $terms_listed ) {
+				echo '<ul class="meta-lang">' . $terms_listed . ' </ul>';
+				
+			}
+			$id = get_the_ID();
+			$terms_listed = get_the_term_list( $id, 'fields' , '<li class="meta-tax">', '</li>' );
+			if ( $terms_listed ) {
+				echo '<ul class="meta-fields">' . $terms_listed . ' </ul>';
+				
+			}
+
+		}
+	}
+}
+if ( ! function_exists( 'digg_post_meta_date' ) ) {
+	function digg_post_meta_date() {
+
+		if ( get_post_type() === 'post' || 'snippets' || 'events' || 'portfolio' ) {
+
+echo '<span class="meta-date"> ' . get_the_date() . ' </span>';
+
+
+		}
+	}
+}
+
+
 if ( ! function_exists( 'digg_comments' ) ) {
 	function digg_comments() {
 		echo '<div class="digg_comments">';
@@ -311,17 +454,47 @@ if ( ! function_exists( 'digg_snippets_meta' ) ) {
 		if ( get_post_type() === 'snippets' ) {
 
 			$id = get_the_ID();
+			$snippet_meta2 = get_post_meta($id, "_description", true);
 			$snippet_meta1 = get_post_meta($id, "_referal", true);
 			$snippet_meta3 = get_post_meta($id, "_alias", true);
-			if ( $snippet_meta1 && $snippet_meta3 ) {
-			echo '<h3 class="snippets-meta"><a href="' . $snippet_meta1 . '">' . $snippet_meta3 . '</a></h3>';
+			if ( $snippet_meta2 || $snippet_meta1 ) {
+			echo '<h4 class="title-snippets-meta">Snippet metadata</h4>';	
 			}
-			$snippet_meta2 = get_post_meta($id, "_description", true);
 			if ( $snippet_meta2 ) {
 			echo '<p class="snippets-meta">' . $snippet_meta2 . '</p>';
 			}
+			if ( $snippet_meta1 && $snippet_meta3 ) {
+			echo '<h4 class="snippets-meta">Link to source:</h4> <a class="snippet-link" href="' . $snippet_meta1 . '">' . $snippet_meta3 . '</a>';
+			}
+
 		}
 		echo '</div><!--End snippets-meta-->';
+	}
+}
+
+
+if ( ! function_exists( 'digg_portfolio_meta_b' ) ) {
+	function digg_portfolio_meta_b() {
+		echo '<div class="portfolio-meta">';
+		if ( get_post_type() === 'portfolio' ) {
+
+			$id = get_the_ID();
+			$portfolio_meta1 = get_post_meta($id, "_portfolio_year", true);
+			$portfolio_meta2 = get_post_meta($id, "_desc_portfolio", true);
+			//$snippet_meta3 = get_post_meta($id, "_alias", true);
+			if ( $portfolio_meta2 ) {
+			echo '<h4 class="title-portfolio-meta title-snippets-meta">Descripción</h4>';
+			echo '<p class="portfolio-meta">' . $portfolio_meta2 . '</p>';	
+			}
+		
+		
+			
+			if ( $portfolio_meta1 ) {
+			echo '<h5 class="portfolio-meta">Produced in:</h5> <span class="year">' . $portfolio_meta1 . '</span>';
+			}
+
+		}
+		echo '</div><!--End portfolio-meta-->';
 	}
 }
 /*	
@@ -615,8 +788,222 @@ if ($post_types) :
 
 endif;
 }
+// class description_walker extends Walker_Nav_Menu {
+// 		function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+// 		//function start_el(&$output, $item, $depth, $args, $id = 0) {
+      
+//            global $wp_query;
+//            $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+//            $class_names = $value = '';
+
+//            $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+
+//            $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
+//            $class_names = ' class="'. esc_attr( $class_names ) . '"';
+
+//            $output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
+
+//            $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+//            $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+//            $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+//            $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+
+//            $prepend = '<img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt=""><h1>';
+//            $append = '</h1>';
+//            $description  = ! empty( $item->description ) ? '<p>'.esc_attr( $item->description ).'</p>' : '';
+
+//            if($depth != 0)
+//            {
+//                      $description = $append = $prepend = "";
+//            }
+
+//             $item_output = $args->before;
+//             $item_output .= '<a class="grid-item" '. $attributes .'>';
+//             $item_output .= $args->link_before .$prepend.apply_filters( 'the_title', $item->title, $item->ID ).$append;
+//             $item_output .= $description.$args->link_after;
+//             $item_output .= '</a>';
+//             $item_output .= $args->after;
+//             $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id );
+           
+//             }
+// }
 
 
+// class img_description_walker extends Walker_Nav_Menu
+// {
+//     function start_lvl( &$output, $depth = 0, $args = array() ) {
+//         // do nothing.
+//     }
+//     function end_lvl( &$output, $depth = 0, $args = array() ) {
+//         // do nothing.
+//     }
+//     function end_el( &$output, $comment, $depth = 0, $args = array() ) {
+//         // do nothing, no </li> will be added
+//     }
+
+//    // add main/sub classes to li's and links
+//     function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+//         global $wp_query;
+
+//         /*do not add anything to the link*/
+//         $indent = '';
+//         $class_names = $value = '';
+//         $output .= '';
+
+//         /*keeping link attributes*/
+
+//         $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+//         $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+//         $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+//         $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+
+//         //append and prepend nothing - you may anything depending on your design
+//        	$prepend = '<h1>';
+//         $append = '</h1>';
+// 		$description  = ! empty( $item->description ) ? '<p>'.esc_attr( $item->description ).'</p>' : '';
+
+// 		if($depth != 0)
+// 		{
+// 			$description = $append = $prepend = "";
+// 		}
+
+//         //$description  = '';
+// 		//$img_assets = THEMEROOT . '/assets/images';
+//         /*We add the icons here*/
+//         switch ($item->title) {
+
+//         case 'Posts' : $item_img = get_theme_root_uri() .'/Digstatic-o-theme/assets/images/home.png';
+//                   break;
+//         case 'Snippets' : $item_img = get_theme_root_uri() .'/Digstatic-o-theme/assets/images/code.png';
+//               	  break;
+//         case 'Portfolio' : $item_img = get_theme_root_uri() .'/Digstatic-o-theme/assets/images/portfolio.png';
+//   				  break;
+
+//         //add as many element you need...
+
+//         default : $item_img = get_theme_root_uri() .'/Digstatic-o-theme/assets/images/default.png';
+//                   break;
+//         }
+
+//         $item_output = '';
+//         $item_output .= '<a'. $attributes .'>';
+        
+//         $item_output .= '<img src="'.$item_img.'" alt="'.$item->title.'" />';
+//         $item_output .= $args->link_before .$prepend.apply_filters( 'the_title', $item->title, $item->ID ).$append;
+//         $item_output .= $description.$args->link_after;
+
+//         $item_output .= '</a>';
+
+//         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id);
+//     }
+// }
+
+
+
+
+
+
+class portfolio_walker extends Walker_Nav_Menu {
+		function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+		//function start_el(&$output, $item, $depth, $args, $id = 0) {
+      
+           global $wp_query;
+           $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+           $class_names = $value = '';
+
+           $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+
+           $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
+           $class_names = ' class="nav-link '. esc_attr( $class_names ) . '"';
+
+           $output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
+
+           $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+           $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+           $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+           $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+
+           $prepend = '';
+           $append = '';
+           $description  = ! empty( $item->description ) ? '<p>'.esc_attr( $item->description ).'</p>' : '';
+
+           if($depth != 0)
+           {
+                     $description = $append = $prepend = "";
+           }
+
+            $item_output = $args->before;
+            $item_output .= '<a '. $attributes .'>';
+            $item_output .= $args->link_before .$prepend.apply_filters( 'the_title', $item->title, $item->ID ).$append;
+            $item_output .= $description.$args->link_after;
+            $item_output .= '</a>';
+            $item_output .= $args->after;
+            $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id );
+           
+            }
+}
+
+class SH_BreadCrumbWalker extends Walker{
+    /**
+     * @see Walker::$tree_type
+     * @var string
+     */
+    var $tree_type = array( 'post_type', 'taxonomy', 'custom' );
+
+    /**
+     * @see Walker::$db_fields
+     * @var array
+     */
+    var $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
+
+    /**
+     * delimiter for crumbs
+     * @var string
+     */
+    var $delimiter = ' > ';
+
+    /**
+     * @see Walker::start_el()
+     *
+     * @param string $output Passed by reference. Used to append additional content.
+     * @param object $item Menu item data object.
+     * @param int $depth Depth of menu item.
+     * @param int $current_page Menu item ID.
+     * @param object $args
+     */
+    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+    //function start_el(&$output, $item, $depth, $args) {
+
+        //Check if menu item is an ancestor of the current page
+        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        $current_identifiers = array( 'current-menu-item', 'current-menu-parent', 'current-menu-ancestor' ); 
+        $ancestor_of_current = array_intersect( $current_identifiers, $classes );     
+
+
+        if( $ancestor_of_current ){
+        	//apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id );
+            $title = apply_filters( 'the_title', $item->title, $item->ID );
+
+            //Preceed with delimter for all but the first item.
+            if( 0 != $depth )
+                $output .= $this->delimiter;
+
+            //Link tag attributes
+            $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+            $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+            $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+            $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+
+            //Add to the HTML output
+            $output .= '<a'. $attributes .'>'.$title.'</a>';
+        }
+    }
+}
+/* After declaring your metaboxes, add the two hooks to make it all go! */
+//add_action('admin_menu', 'create_box');
+//add_action('save_post', 'save_box');
 // add_action( 'add_meta_boxes', 'acme_custom_meta_box' );
 // /**
 //  * Defines a custom post meta box that displays directly below the

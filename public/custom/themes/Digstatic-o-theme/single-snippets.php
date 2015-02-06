@@ -11,7 +11,7 @@
 
 get_header(); ?>
 <!--wrapper-main-->
-<div class="wrapper-main">
+
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
@@ -20,8 +20,7 @@ get_header(); ?>
 		<?php comments_template(); ?>
 	<?php endwhile; ?>
 
-</div> <!--End wrapper-main-->
 
-<?php get_sidebar(); ?>
+<?php // get_sidebar(); ?>
 
 <?php get_footer(); ?>

@@ -1,0 +1,57 @@
+$font__rockwell--xl: 'rockwell-extra-bold';
+$style-name_rockwell--b: rockwell-extra-bold;
+$file_rockwell--b: 'rockwell-extra-bold';
+$category_rockwell--b: serif;
+
+$font__rockwell--m: 'rockwell-webfont';
+$style-name_rockwell: rockwell-webfont;
+$file_rockwell: 'rockwell-webfont';
+$category_rockwell: serif;
+
+$font__altehaas--m: 'altehaasgroteskregular-webfont';
+$style-name_altehaas: 'altehaasgroteskregular-webfont';
+$file_altehaas: 'altehaasgroteskregular-webfont';
+$category_altehaas: sans-serif;
+
+
+
+
+$font__campton--xl: 'camptonbold_demo';
+$style-name_xl: camptonbold_demo;
+$file_xl: 'campton-bolddemo-webfont';
+$category_xl: sans-serif;
+
+$font__campton--s: 'camptonlight_demo';
+$style-name_s: camptonlight_demo;
+$file_s: 'campton-lightdemo-webfont';
+$category_s: sans-serif;
+
+
+@mixin font-face($style-name, $file, $category:"") {
+    $filepath: "assets/fonts/" + $file;
+    @font-face {
+        font-family: "#{$style-name}";
+        src: url($filepath + ".eot");
+        src: url($filepath + ".eot?#iefix") format('embedded-opentype'), url($filepath + ".woff") format('woff'), url($filepath + ".ttf")  format('truetype'), url($filepath + ".svg#" + $style-name + "") format('svg');
+    }
+    %#{$style-name} {
+        font: {
+            @if $category != "" {
+                family: "#{$style-name}", #{$category};
+            }
+            @else {
+                family: "#{$style-name}";
+                weight: normal;
+            }
+        }
+    }
+}
+
+
+
+@include font-face($style-name_s, $file_s, $category_s);
+@include font-face($style-name_xl, $file_xl, $category_xl);
+@include font-face($style-name_altehaas, $file_altehaas, $category_altehaas);
+
+@include font-face($style-name_rockwell, $file_rockwell, $category_rockwell);
+

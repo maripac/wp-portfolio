@@ -54,7 +54,16 @@
 			if ( is_single() && get_the_author_meta( 'description' ) ) {
 				echo '<h2>' . __( 'Written by ', 'digg' ) . get_the_author() . '</h2>';
 				echo '<p>' . the_author_meta( 'description' ) . '</p>';
-			}
-		?>
+			} ?>
+		<?php /*
+			if ( is_single() ) { ?>
+			<?php // previous_post_link('%link', '%title', TRUE, '7'); ?> &bull; 
+			<?php // next_post_link('%link', '%title', TRUE, '7'); ?>
+		<?php }*/ ?>
+		<?php 
+			if ( is_single() ) { ?>
+			<?php previous_post_link('<div class="go__back"> <<-- Older post: %link </div>', '%title', TRUE ); ?> 
+			<?php next_post_link('<div class="go__forth"> Newer post: %link -->> </div>', '%title', TRUE ); ?>
+		<?php } ?>
 	</footer> <!-- end entry-footer -->
 </article>
