@@ -85,29 +85,35 @@ Body
 |	|	|	|	|	|
 |	|	|	|	|	|	_div.navigation-wrapper
 |	|	|	|	|	|	|
-|	|	|	|	|	|	|	_a.navigation-menu-button /_a
+|	|	|	|	|	|	|	_a
+|	|	|	|	|	|	|	|_.navigation-menu-button/a
 |	|	|	|	|	|	|
 |	|	|	|	|	|	|	_nav role="navigation"
 |	|	|	|	|	|	|	|
 |	|	|	|	|	|	|	|	_a.toggle-nav
 |	|	|	|	|	|	|	|	|
-|	|	|	|	|	|	|	|	|	_div#hamburger.hamburglar
+|	|	|	|	|	|	|	|	|	_div
+|	|	|	|	|	|	|	|	|	||_#hamburger
+|	|	|	|	|	|	|	|	|	||_.hamburglar
 |	|	|	|	|	|	|	|	|	|
-|	|	|	|	|	|	|	|	|	|	_div.burger-icon
-|	|	|	|	|	|	|	|	|	|	
-|	|	|	|	|	|	|	|	|	|	_div.burger-ring
+|	|	|	|	|	|	|	|	|	| _div
+|	|	|	|	|	|	|	|	|	|  |_.burger-icon
 |	|	|	|	|	|	|	|	|	|
-|	|	|	|	|	|	|	|	|	|	_svg
+|	|	|	|	|	|	|	|	|	| _div
+|	|	|	|	|	|	|	|	|	|  |_.burger-ring
+|	|	|	|	|	|	|	|	|	| 
+|	|	|	|	|	|	|	|	|	| _svg
 |	|	|	|	|	|	|	|	|	|
-|	|	|	|	|	|	|	|	|	|	_div.path-burger
+|	|	|	|	|	|	|	|	|	| _div
+|	|	|	|	|	|	|	|	|	|  |_.path-burger
 |	|	|	|	|	|	|	|	|	|
 |	|	|	|	|	|	|	|	|	|_/div
 |	|	|	|	|	|	|	|	|
 |	|	|	|	|	|	|	|	|_/a
 |	|	|	|	|	|	|	|
 |	|	|	|	|	|	|	|	_ul
-|	|	|	|	|	|	|	|	| |__ #js-navigation-menu
-|	|	|	|	|	|	|	|	| |__ .navigation-menu
+|	|	|	|	|	|	|	|	||__ #js-navigation-menu
+|	|	|	|	|	|	|	|	||__ .navigation-menu
 |	|	|	|	|	|	|	|	|
 |	|	|	|	|	|	|	|	|	_li.nav-link
 |	|	|	|	|	|	|	|	|	|
