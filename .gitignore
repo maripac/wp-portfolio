@@ -29,7 +29,7 @@ vendor/
 docs/
 db/
 public/custom/plugins/wp-remove-category-base/
-public/custom/plugins/syntaxhighlighter/
+public/custom/plugins/metabox-abstract
 public/custom/plugins/query-monitor/
 public/custom/themes/CMB2-Example-Theme/
 public/custom/themes/Digstatic-o-theme/assets/.sass-cache/
@@ -39,3 +39,7 @@ public/custom/themes/Digstatic-o-theme/assets/sass/neat/
 public/custom/themes/Digstatic-o-theme/assets/sass/bourbon/
 public/custom/themes/Digstatic-o-theme/assets/js/
 public/custom/uploads/
+public/custom/themes/Digstatic-o-theme/.sass-cache/
+public/custom/themes/Digstatic-o-theme/backup-header.php
+public/custom/themes/Digstatic-o-theme/footer__sidebar--footer.php
+public/custom/themes/Digstatic-o-theme/.DS_Store

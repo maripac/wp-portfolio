@@ -52,6 +52,5 @@ $category_s: sans-serif;
 @include font-face($style-name_s, $file_s, $category_s);
 @include font-face($style-name_xl, $file_xl, $category_xl);
 @include font-face($style-name_altehaas, $file_altehaas, $category_altehaas);
-
 @include font-face($style-name_rockwell, $file_rockwell, $category_rockwell);
 

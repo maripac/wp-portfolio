@@ -27,6 +27,9 @@ $max-width:100%;
 
 @import "../neat/neat-helpers"; // or "../neat/neat-helpers" when not in Rails
 
+
+
+//total	1280px	960px	720px	480px	320px
 // Neat Overrides
 // $column: 90px;
 // $gutter: 30px;
@@ -39,4 +42,23 @@ $large-screen: em(860);
 
 $medium-screen-up: new-breakpoint(min-width $medium-screen 12);
 $large-screen-up: new-breakpoint(min-width $large-screen 12);
+
+
+$small-level-a: em(320);
+$small-level-a-up: new-breakpoint(min-width $small-level-a 12);
+
+
+$small-level-b: em(480);
+$small-level-b-up: new-breakpoint(min-width $small-level-b 12);
+
+$medium-level-c: em(720);
+$medium-level-c-up: new-breakpoint(min-width $medium-level-c 12);
+
+
+$large-level-d: em(960);
+$large-level-d-up: new-breakpoint(min-width $large-level-d 12);
+
+
+$extra-large-level-e: em(1280);
+$extra-large-level-e-up: new-breakpoint(min-width $extra-large-level-e 12);
 

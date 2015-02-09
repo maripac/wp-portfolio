@@ -40,6 +40,10 @@
 
   <!--<script src="https://assets.codepen.io/assets/common/stopExecutionOnTimeout-6c99970ade81e43be51fa877be0f7600.js"></script>-->
 
+
+<?php 
+if ( ! is_page_template( 'template-grid-images.php' ) && ! is_front_page() ) :	?>
+<?php// if( is_post_type_archive('portfolio') || is_singular( 'portfolio' )  ) : // Checks if this version of WP supports menus ?>
 <script>
 
 
@@ -81,28 +85,43 @@ function burgerTime() {
 
 });
 
-
-
-
 </script>
 
-<?php if( is_post_type_archive('portfolio') || is_singular( 'portfolio' )  ) : // Checks if this version of WP supports menus ?>
-	<script>
-		$(document).ready(function() {
-		  var menuToggle = $('#js-mobile-menu').unbind();
-		  $('#js-navigation-menu').removeClass("show");
 
-		  menuToggle.on('click', function(e) {
-		    e.preventDefault();
-		    $('#js-navigation-menu').slideToggle(function(){
-		      if($('#js-navigation-menu').is(':hidden')) {
-		        $('#js-navigation-menu').removeAttr('style');
-		      }
-		    });
-		  });
-		});
-	</script>
+<script>
+	$(document).ready(function() {
+	  var menuToggle = $('#js-mobile-menu').unbind();
+	  $('#js-navigation-menu').removeClass("show");
+
+	  menuToggle.on('click', function(e) {
+	    e.preventDefault();
+	    $('#js-navigation-menu').slideToggle(function(){
+	      if($('#js-navigation-menu').is(':hidden')) {
+	        $('#js-navigation-menu').removeAttr('style');
+	      }
+	    });
+	  });
+	});
+</script>
 <?php endif; // ends the conditional argument ?>
+<script>
+
+$('#switch-x').click(function(){
+    if($(this).is(":checked")) {
+        $('body').addClass("checked-x");
+    } else {
+        $('body').removeClass("checked-x");
+    }
+});
+$('#switch-y').click(function(){
+    if($(this).is(":checked")) {
+        $('body').addClass("checked-y");
+    } else {
+        $('body').removeClass("checked-y");
+    }
+});
+
+</script>
 
 </body>
 

@@ -7,11 +7,11 @@
 
 // Our variables
 $base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   18px;
+$base-font-size:   16px;
 $small-font-size:  $base-font-size * 0.875;
-$base-line-height: 28px;
+$base-line-height: 24px;
 
-$spacing-unit:     38px;
+$spacing-unit:     12px;
 
 $text-color:       #111;
 $background-color: #fdfdfd;
@@ -78,7 +78,8 @@ $navigation-search-border: 1px solid darken($navigation-background, 5);
 $navigation-active-link-color: transparentize(white, 0.5);
 $navigation-submenu-padding: 1em;
 $navigation-submenu-width: 12em;
-$horizontal-bar-mode: $large-screen;
+//$horizontal-bar-mode: $large-screen;
+$horizontal-bar-mode: $medium-level-c;
 
 
 @mixin grid-item-columns($columns) {

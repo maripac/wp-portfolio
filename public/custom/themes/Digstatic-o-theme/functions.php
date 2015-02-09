@@ -1000,7 +1000,7 @@ class SH_BreadCrumbWalker extends Walker{
             $output .= '<a'. $attributes .'>'.$title.'</a>';
         }
     }
-}
+} 
 /* After declaring your metaboxes, add the two hooks to make it all go! */
 //add_action('admin_menu', 'create_box');
 //add_action('save_post', 'save_box');
@@ -1060,3 +1060,25 @@ class SH_BreadCrumbWalker extends Walker{
 
 // 	add_action( 'wp_enqueue_scripts', 'digg_scripts' );
 //}
+
+?>
+<?php
+
+// Function to add prism.css and prism.js to the site
+function add_prism() {
+// Register prism.css file
+wp_register_style(
+'prismCSS', // handle name for the style so we can register, de-register, etc.
+get_stylesheet_directory_uri() . '/assets/vendor-theme/css/prism.css' // location of the prism.css file
+);
+// Register prism.js file
+wp_register_script(
+'prismJS', // handle name for the script so we can register, de-register, etc.
+get_stylesheet_directory_uri() . '/assets/js/prism.js' // location of the prism.js file
+);
+// Enqueue the registered style and script files
+wp_enqueue_style('prismCSS');
+wp_enqueue_script('prismJS');
+}
+add_action('wp_enqueue_scripts', 'add_prism');
+?>

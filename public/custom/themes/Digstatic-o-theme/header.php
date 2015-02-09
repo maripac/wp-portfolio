@@ -63,6 +63,18 @@ __      _| |__   __ _| |_   _ ___  | |_| |__   ___    __ _  ___  ___| |_ __ _| |
 
 </head>
 <body <?php body_class(); ?>>
+<div class="grid_control">
+<label class="label-switch switch-x">
+	<span>X-SWITCH</span>
+ 	<input id="switch-x" type="checkbox" />
+  	<div class="checkbox"></div>
+</label>
+<label class="label-switch switch-y">
+	<span>Y-SWITCH</span>
+ 	<input id="switch-y" type="checkbox" />
+  	<div class="checkbox"></div>
+</label>
+</div><!-- End .grid_control--> 
 <!-- WRAPPER AND VIEWPORT FOR OFFCANVAS NAV -->
 <div id="site-wrapper">
 	<div id="site-canvas">
@@ -73,7 +85,7 @@ __      _| |__   __ _| |_   _ ___  | |_| |__   ___    __ _  ___  ___| |_ __ _| |
 		article: https://raygun.io/blog/2014/07/making-svg-html-burger-button/
 		-->
 
-	<?php if ( ! is_post_type_archive('portfolio') && ! is_singular( 'portfolio' )  ) : // Checks if this version of WP supports menus ?>
+	<?php /* if ( ! is_post_type_archive('portfolio') && ! is_singular( 'portfolio' )  ) : // Checks if this version of WP supports menus ?>
 		<a href="#" class="toggle-nav">
 		 <div id="hamburger" class="hamburglar">
 
@@ -108,7 +120,7 @@ __      _| |__   __ _| |_   _ ___  | |_| |__   ___    __ _  ___  ___| |_ __ _| |
 		      
 		 </div><!-- end hamburglar-->
 		</a>
-	<?php endif; // ends the conditional argument ?>
+	<?php endif; */ // ends the conditional argument ?>
 		<?php 
 		//if ( is_page_template( 'template-grid-images.php' ) ) {
 		//if ( is_front_page() && is_home() ) {
@@ -125,44 +137,14 @@ __      _| |__   __ _| |_   _ ___  | |_| |__   ___    __ _  ___  ___| |_ __ _| |
 
 	
 <?php 
-if ( is_page_template( 'template-grid-images.php' ) || is_front_page() ) {	?>
-
-		<div class="container">
-			<div class="grid-items">
-		<!-- <div class="row grid-nav-row">
-				<div class="nav-portada">
-					<nav class="site-navigation" role="navigation"> -->
+if ( ! is_page_template( 'template-grid-images.php' ) && ! is_front_page() ) {	?>
 
 
-						<?php  if(function_exists('wp_nav_menu')) : // Checks if this version of WP supports menus ?>
-		
-							<?php wp_nav_menu(
-								array(
-									'theme_location'		=> 'top_header_menu',	// Link this menu to a registered location
-									'container'       		=> FALSE,				// specify div as container wrapper
-									'container_id'    		=> FALSE,				// ID for container wrapper div
-									'depth'          		=> 2,					
-									'menu_class'      		=> 'top-menu-list'		// class on UL
-								));
-							?>
-		
-						<?php else: // If custom menus not support then the following code will be executed instead ?>
-							<div class="menu">
-					        	<ul>
-							   		<?php wp_list_pages('title_li='); ?>
-					           </ul>
-							</div>
-						<?php endif; // ends the conditional argument ?>
-
-					<!--</nav>
-				</div>--> <!-- end nav-portada -->
-			<!--</div>--> <!--end menu row-->
-		</div><!--end menu container-frame-->
-	</div>
 
 
 <?php  // static homepage is_post_type_archive( $post_type )
-	} elseif ( is_post_type_archive('portfolio') || is_singular( 'portfolio' )  ) {
+	//} else{ 
+	// ( is_post_type_archive('portfolio') || is_singular( 'portfolio' )  ) {
 		// blog page
 	?>
 
@@ -171,7 +153,7 @@ if ( is_page_template( 'template-grid-images.php' ) || is_front_page() ) {	?>
 			<div class="container header-contents">
 			  <!--<div class="row">-->
 						<!--<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">-->
-							<img class="portada portfolio" src="<?php echo $img_assets; ?>/002-head.jpg" />
+							<img class="portada portfolio" src="<?php echo $img_assets; ?>/004-head.jpg" />
 						<!--</a>-->
 				<!--</div>--> <!-- end row -->
 		
@@ -271,13 +253,13 @@ if ( is_page_template( 'template-grid-images.php' ) || is_front_page() ) {	?>
 	<?php endif; // ends the conditional argument ?>
 
 
-<?php
+<?php } /*
 	} else { ?>
 		<header class="site-header" role="banner">
 			<div class="container header-contents">
 			  <div class="row">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-							<img class="portada" src="<?php echo $img_assets; ?>/002-head.jpg" />
+							<img class="portada" src="<?php echo $img_assets; ?>/003-head.jpg" />
 						</a>
 				</div> <!-- end row -->
 			</div> <!-- end container -->
@@ -314,7 +296,8 @@ if ( is_page_template( 'template-grid-images.php' ) || is_front_page() ) {	?>
 			</div><!--end menu row-->
 		</div><!--end menu container-frame-->
 
-<?php } ?>
+<?php } */?>
+
 
 		<!-- MAIN CONTENT AREA -->
 		<div class="container-frame main">
