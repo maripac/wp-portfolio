@@ -19,7 +19,7 @@
 			    'hide_empty' => 0
 			) );
 			?>
-
+			<h5>Taxonomy Fields</h5>
 			<?php
 			// now run a query for each animal family
 			foreach( $terms as $term ) {
@@ -44,7 +44,7 @@
 			        // Start the Loop
 			        while ( $query->have_posts() ) : $query->the_post(); ?>
 			 
-			        <li class="animal-listing" id="post-<?php the_ID(); ?>">
+			        <li class="tax-listing" id="post-<?php the_ID(); ?>">
 			            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 			        </li>
 			         
@@ -68,7 +68,7 @@
 			    'hide_empty' => 0
 			) );
 			?>
-
+			<h5>Taxonomy Languages</h5>
 			<?php
 			// now run a query for each animal family
 			foreach( $termsl as $term ) {
@@ -91,7 +91,7 @@
 			        // Start the Loop
 			        while ( $query->have_posts() ) : $query->the_post(); ?>
 			 
-			        <li class="animal-listing" id="post-<?php the_ID(); ?>">
+			        <li class="tax-listing" id="post-<?php the_ID(); ?>">
 			            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 			        </li>
 			         

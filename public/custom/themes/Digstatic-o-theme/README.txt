@@ -129,14 +129,6 @@ Body
 |	|	|	|	|	|
 |	|	|	|	|	|_/header
 |	|	|	|	|
-|	|	|	|	|_/div
-|	|	|	|
-|	|	|	|_/div  //////////////////////////////SITE HEADER
-|	|	|
-|	|	|	_div.container-frame
-|	|	|	|
-|	|	|	|	_div.row.top-nav-row
-|	|	|	|	|
 |	|	|	|	|	_div#breadcrumb-menu-breadcrum.menu
 |	|	|	|	|	|
 |	|	|	|	|	|	_a /a > _a /a >_a /a > ...
@@ -145,7 +137,7 @@ Body
 |	|	|	|	|
 |	|	|	|	|_/div
 |	|	|	|
-|	|	|	|_/div
+|	|	|	|_/div  //////////////////////////////SITE HEADER
 |	|	|
 |	|	|
 |	|	|	_div.container-frame.main ////////////////CONTENT

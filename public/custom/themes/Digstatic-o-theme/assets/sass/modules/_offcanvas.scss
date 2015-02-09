@@ -55,30 +55,136 @@
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   
-  -webkit-transition: 300ms ease all;
-  transition: 300ms ease all;
+  -webkit-transition: 260ms ease all;
+  transition: 260ms ease all;
  
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
    
 }
 .show-nav #site-canvas {
-  -webkit-transform: translateX(300px);
-  transform: translateX(300px);
+  -webkit-transform: translateX(260px);
+  transform: translateX(260px);
   
-  -webkit-transform: translate3d(300px, 0, 0);
-  transform: translate3d(300px, 0, 0);
+  -webkit-transform: translate3d(260px, 0, 0);
+  transform: translate3d(260px, 0, 0);
 }
 #site-menu {
-  width: 300px;
+  width: 260px;
   height: 100%;
+  min-height: 100%;
   position: absolute;
   top: 0;
-  left: -300px;
+  left: -260px;
   background: #333;
   color:#fff;
   & + a.toggle-nav{
   }
 }
 
+.wrapper-navget{
+  .portfolio-fields{
+  //  padding-top:4em;
+  }
+  .snippets-languages{
+  //  padding-bottom:2em;
+  }
+  a{
+
+  @include transition(color 0.1s linear);
+  color: $base-link-color;
+  text-decoration: none;
+
+    &:hover {
+      color: $hover-link-color;
+    }
+
+    &:active, &:focus {
+      color: $hover-link-color;
+      outline: none;
+    }
+  }
+  h5{
+    text-transform: uppercase;
+    line-height: 1.5em;
+    padding-top: 2.5em;
+    font-size: 0.625em;
+    text-decoration: underline;
+    color: #111; 
+  }
+}
+.wrapper-navget{
+  background-color:#7FFFD4;
+  margin:0;
+  width:260px;
+  padding-left:4em;
+    padding-right:4em;
+    padding-bottom: 2em;
+
+
+  ul{
+    padding-top:12px;
+  }
+  //padding-right: 4em;
+}
+body, html{
+  //min-height:100%;
+ height:100%;
+  //height:auto !important;
+}
+#site-canvas{
+       // border-bottom: 12px solid #333;
+    min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  
+  /* Pad bottom by footer height */
+  padding: 0px 0 160px;
+  //padding: 0px 0 60px;
+  //margin: 0 auto -60px;
+}
+#site-menu{
+
+
+  width: 260px;
+/* height: 100%; */
+min-height: 100%;
+position: absolute;
+top: 0;
+bottom: -90px;
+left: -260px;
+background: #333;
+color: #fff;
+overflow-y:scroll;
+   //width:90%;
+  padding-top:36px;
+  margin-bottom: -60px;
+  //background-color:#7FFFD4;
+         // border-bottom: 24px solid #333;
+}
+#site-wrapper{
+
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+    padding: 0px 0 60px;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+
+  /* Pad bottom by footer height */
+  //padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  //        border-top: 12px solid #333;
+  margin:0px auto 0 auto;
+
+ height: 60px;
+ //border-top:2px solid $hover-link-color;
+
+ background-color: #222;
+ //z-index: 99999999;
+}
 
