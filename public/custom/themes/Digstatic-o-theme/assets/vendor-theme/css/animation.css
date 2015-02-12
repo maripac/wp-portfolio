@@ -72,13 +72,21 @@ h4 {
       -ms-transform-origin: 100% 0;
           transform-origin: 100% 0;
 }
-.path-rotation:before {
+/*.path-rotation:before {
   content: '';
   display: block;
   width: 30px;
   height: 34px;
   margin: 0 4px 0 0;
   background: #fff;
+}*/
+.path-rotation:before {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 34px;
+  /*  margin: 0px 4px 0px 0px;
+    background: none repeat scroll 0% 0% #FFF;*/
 }
 
 

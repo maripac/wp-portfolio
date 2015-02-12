@@ -275,6 +275,15 @@ input[type="submit"] {
 */
 /**
 *------------------------------------------------------------------------------------
+*  BASE PARTIAL  
+*------------------------------------------------------------------------------------
+*/
+p {
+  margin: 0;
+  padding: 0 0 24px; }
+
+/**
+*------------------------------------------------------------------------------------
 *	LAYOUT PARTIAL
 *------------------------------------------------------------------------------------
 */
@@ -683,6 +692,11 @@ aside .widget {
   overflow: hidden;
   width: 100%; }
 
+.grid_control.show.hide + #site-wrapper.show-nav {
+  background-color: #333; }
+  .grid_control.show.hide + #site-wrapper.show-nav > #site-canvas {
+    background-color: #fff; }
+
 #site-canvas {
   width: 100%;
   height: 100%;
@@ -691,26 +705,29 @@ aside .widget {
   transform: translateX(0);
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  -webkit-transition: 260ms ease all;
-  transition: 260ms ease all;
+  -webkit-transition: 280ms ease all;
+  transition: 280ms ease all;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden; }
 
 .show-nav #site-canvas {
-  -webkit-transform: translateX(260px);
-  transform: translateX(260px);
-  -webkit-transform: translate3d(260px, 0, 0);
-  transform: translate3d(260px, 0, 0); }
+  -webkit-transform: translateX(280px);
+  transform: translateX(280px);
+  -webkit-transform: translate3d(280px, 0, 0);
+  transform: translate3d(280px, 0, 0); }
 
 #site-menu {
-  width: 260px;
+  width: 280px;
   height: 100%;
   min-height: 100%;
-  position: absolute;
+  position: relative;
   top: 0;
-  left: -260px;
+  margin-left: -280px;
   background: #333;
-  color: #fff; }
+  color: #fff;
+  overflow: auto;
+  padding-top: 60px;
+  float: left; }
 
 .wrapper-navget a {
   -webkit-transition: color 0.1s linear;
@@ -726,18 +743,15 @@ aside .widget {
 .wrapper-navget h5 {
   text-transform: uppercase;
   line-height: 1.5em;
-  padding-top: 2.5em;
-  font-size: 0.625em;
-  text-decoration: underline;
-  color: #111; }
+  padding-top: 2em;
+  font-size: 0.8725em;
+  color: #333; }
 
 .wrapper-navget {
   background-color: #7FFFD4;
   margin: 0;
-  width: 260px;
-  padding-left: 4em;
-  padding-right: 4em;
-  padding-bottom: 2em; }
+  width: 280px;
+  padding-left: 2em; }
   .wrapper-navget ul {
     padding-top: 12px; }
 
@@ -747,38 +761,40 @@ body, html {
 #site-canvas {
   min-height: 100%;
   height: auto !important;
-  height: 100%;
   /* Negative indent footer by its height */
   /* Pad bottom by footer height */
-  padding: 0px 0 160px; }
+  padding: 0px 0 60px;
+  margin: 0px 0 -60px; }
 
-#site-menu {
-  width: 260px;
-  /* height: 100%; */
-  min-height: 100%;
-  position: absolute;
-  top: 0;
-  bottom: -90px;
-  left: -260px;
-  background: #333;
-  color: #fff;
-  overflow-y: scroll;
-  padding-top: 36px;
-  margin-bottom: -60px; }
+.wrapper-navget {
+  padding-bottom: 2em; }
 
 #site-wrapper {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  padding: 0px 0 60px;
   /* Negative indent footer by its height */
-  margin: 0 auto -60px;
+  margin: 0 auto -30px;
   /* Pad bottom by footer height */ }
+
+.copyright-front {
+  width: 100%;
+  text-align: right;
+  height: 30px;
+  font-size: 3.5em;
+  text-transform: lowercase;
+  position: relative;
+  bottom: -0.25em; }
+  .copyright-front p {
+    padding-bottom: 0;
+    padding-right: 32px; }
 
 /* Set the fixed height of the footer here */
 #footer {
-  margin: 0px auto 0 auto;
-  height: 60px;
+  margin: -30px auto 0 auto;
+  height: 30px;
+  overflow: auto;
+  position: relative;
   background-color: #222; }
 
 /**
@@ -1189,7 +1205,7 @@ header.navigation {
     border-right: 1px solid rgba(34, 34, 34, 0.2);
     cursor: pointer;
     float: left;
-    height: 14em;
+    height: 16em;
     overflow: hidden;
     outline: none;
     padding: 2em;
@@ -1201,9 +1217,9 @@ header.navigation {
       background: rgba(34, 34, 34, 0.05); }
   .grid-items-lines .grid-item img {
     display: block;
-    height: 2.5em;
-    margin-bottom: 1.2em;
-    opacity: 0.2; }
+    height: 92px;
+    width: auto;
+    margin-bottom: 1.2em; }
   .grid-items-lines .grid-item h1 {
     color: #222;
     font-size: 1.3em;
@@ -1399,5 +1415,161 @@ body.checked-x:before {
       background-image: -ms-linear-gradient(left, transparent 0, red 0, red 6.17215%, transparent 6.17215%, transparent 8.5298%, red 8.5298%, red 14.70196%, transparent 14.70196%, transparent 17.05961%, red 17.05961%, red 23.23176%, transparent 23.23176%, transparent 25.58941%, red 25.58941%, red 31.76157%, transparent 31.76157%, transparent 34.11922%, red 34.11922%, red 40.29137%, transparent 40.29137%, transparent 42.64902%, red 42.64902%, red 48.82117%, transparent 48.82117%, transparent 51.17883%, red 51.17883%, red 57.35098%, transparent 57.35098%, transparent 59.70863%, red 59.70863%, red 65.88078%, transparent 65.88078%, transparent 68.23843%, red 68.23843%, red 74.41059%, transparent 74.41059%, transparent 76.76824%, red 76.76824%, red 82.94039%, transparent 82.94039%, transparent 85.29804%, red 85.29804%, red 91.4702%, transparent 91.4702%, transparent 93.82785%, red 93.82785%, red 100.0%, transparent 100.0%);
       background-image: -o-linear-gradient(left, transparent 0, red 0, red 6.17215%, transparent 6.17215%, transparent 8.5298%, red 8.5298%, red 14.70196%, transparent 14.70196%, transparent 17.05961%, red 17.05961%, red 23.23176%, transparent 23.23176%, transparent 25.58941%, red 25.58941%, red 31.76157%, transparent 31.76157%, transparent 34.11922%, red 34.11922%, red 40.29137%, transparent 40.29137%, transparent 42.64902%, red 42.64902%, red 48.82117%, transparent 48.82117%, transparent 51.17883%, red 51.17883%, red 57.35098%, transparent 57.35098%, transparent 59.70863%, red 59.70863%, red 65.88078%, transparent 65.88078%, transparent 68.23843%, red 68.23843%, red 74.41059%, transparent 74.41059%, transparent 76.76824%, red 76.76824%, red 82.94039%, transparent 82.94039%, transparent 85.29804%, red 85.29804%, red 91.4702%, transparent 91.4702%, transparent 93.82785%, red 93.82785%, red 100.0%, transparent 100.0%);
       background-image: linear-gradient(to left, transparent 0, red 0, red 6.17215%, transparent 6.17215%, transparent 8.5298%, red 8.5298%, red 14.70196%, transparent 14.70196%, transparent 17.05961%, red 17.05961%, red 23.23176%, transparent 23.23176%, transparent 25.58941%, red 25.58941%, red 31.76157%, transparent 31.76157%, transparent 34.11922%, red 34.11922%, red 40.29137%, transparent 40.29137%, transparent 42.64902%, red 42.64902%, red 48.82117%, transparent 48.82117%, transparent 51.17883%, red 51.17883%, red 57.35098%, transparent 57.35098%, transparent 59.70863%, red 59.70863%, red 65.88078%, transparent 65.88078%, transparent 68.23843%, red 68.23843%, red 74.41059%, transparent 74.41059%, transparent 76.76824%, red 76.76824%, red 82.94039%, transparent 82.94039%, transparent 85.29804%, red 85.29804%, red 91.4702%, transparent 91.4702%, transparent 93.82785%, red 93.82785%, red 100.0%, transparent 100.0%); } }
+
+#site-menu {
+  padding-top: 0; }
+
+#site-wrapper.show-nav {
+  background-color: #7FFFD4; }
+  #site-wrapper.show-nav #site-canvas {
+    background-color: #fff; }
+
+p + h2 {
+  padding-bottom: 24px;
+  line-height: 1.5em;
+  padding-top: 24px; }
+.page-id-80 h2 {
+  font-weight: normal; }
+
+p {
+  padding-bottom: 24px; }
+
+.wrapper-quote {
+  margin-bottom: 24px;
+  float: right;
+  width: 100%;
+  display: inline-block; }
+  @media screen and (min-width: 45em) {
+    .wrapper-quote {
+      margin-bottom: 0;
+      float: right;
+      width: 60%; } }
+  @media screen and (min-width: 60em) {
+    .wrapper-quote {
+      margin-bottom: 0;
+      float: right;
+      width: 60%;
+      margin-right: -4em;
+      margin-left: 4em; } }
+  .wrapper-quote .cuerpo-quote {
+    border-left: none;
+    color: #ddd;
+    font-size: 1.875em;
+    line-height: 1.25em;
+    text-align: right; }
+    .wrapper-quote .cuerpo-quote blockquote {
+      margin: 12px 0 0;
+      border-left: none;
+      padding-left: 0; }
+      @media screen and (min-width: 45em) {
+        .wrapper-quote .cuerpo-quote blockquote {
+          margin: 60px 0 0;
+          border-top: 2px solid #777;
+          margin-left: 2em; } }
+      @media screen and (min-width: 60em) {
+        .wrapper-quote .cuerpo-quote blockquote {
+          margin-left: 0em; } }
+  .wrapper-quote .pie-quote {
+    text-align: right;
+    margin: 0 0 24px;
+    color: #777; }
+    @media screen and (min-width: 45em) {
+      .wrapper-quote .pie-quote {
+        border-bottom: 2px solid #777;
+        margin: 0 0 48px 60px; } }
+    @media screen and (min-width: 60em) {
+      .wrapper-quote .pie-quote {
+        margin: 0 0 48px 0px; } }
+
+.page-id-80:hover {
+  font-size: 16px;
+  line-height: 24px; }
+.page-id-80 .container-frame.main {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 890px; }
+  .page-id-80 .container-frame.main:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .page-id-80 .container-frame.main .row {
+    padding: 1.5em 2em 3em 2em;
+    overflow: visible; }
+.page-id-80 .entry-header {
+  padding-bottom: 36px; }
+  .page-id-80 .entry-header h1 {
+    display: none; }
+.page-id-80 .wrapper-profile {
+  float: left;
+  width: 100%;
+  display: inline-block; }
+  @media screen and (min-width: 30em) {
+    .page-id-80 .wrapper-profile {
+      width: 70%;
+      max-width: 330px; } }
+  @media screen and (min-width: 45em) {
+    .page-id-80 .wrapper-profile {
+      width: 40%;
+      max-width: 40%; } }
+  .page-id-80 .wrapper-profile .round {
+    float: left;
+    display: inline-block;
+    width: 65%;
+    max-width: 120px; }
+    @media screen and (min-width: 20em) {
+      .page-id-80 .wrapper-profile .round {
+        max-width: 150px; } }
+    @media screen and (min-width: 45em) {
+      .page-id-80 .wrapper-profile .round {
+        max-width: 100px; } }
+    @media screen and (min-width: 60em) {
+      .page-id-80 .wrapper-profile .round {
+        max-width: 150px; } }
+    .page-id-80 .wrapper-profile .round img {
+      width: 100%;
+      height: auto; }
+  .page-id-80 .wrapper-profile .pie-profile {
+    float: left;
+    display: inline-block;
+    width: 35%; }
+    .page-id-80 .wrapper-profile .pie-profile h1 {
+      font-size: 3em;
+      visibility: hidden; }
+      .page-id-80 .wrapper-profile .pie-profile h1:before {
+        content: 'bout';
+        visibility: visible;
+        display: block; }
+      @media screen and (min-width: 20em) {
+        .page-id-80 .wrapper-profile .pie-profile h1 {
+          font-size: 4em; } }
+      @media screen and (min-width: 30em) {
+        .page-id-80 .wrapper-profile .pie-profile h1 {
+          font-size: 3.5em; } }
+      @media screen and (min-width: 45em) {
+        .page-id-80 .wrapper-profile .pie-profile h1 {
+          font-size: 2.5em; } }
+      @media screen and (min-width: 60em) {
+        .page-id-80 .wrapper-profile .pie-profile h1 {
+          font-size: 4em; } }
+.page-id-80 p {
+  font-size: 1.125em;
+  line-height: 1.335em; }
+.page-id-80 .container.header-contents #breadcrumb-menu-breadcrum {
+  position: absolute;
+  bottom: 24px;
+  font-family: Helvetica, Arial, sans-serif; }
+.page-id-80 .copy-alma {
+  position: relative;
+  text-align: right;
+  right: 32px;
+  font-size: 0.825em;
+  color: #777; }
+.page-id-80 #site-menu {
+  padding-top: 0; }
+.page-id-80 #site-wrapper.show-nav {
+  background-color: #7FFFD4; }
+  .page-id-80 #site-wrapper.show-nav #site-canvas {
+    background-color: #fff; }
 
 /*# sourceMappingURL=style.css.map */

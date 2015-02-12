@@ -66,7 +66,8 @@ __      _| |__   __ _| |_   _ ___  | |_| |__   ___    __ _  ___  ___| |_ __ _| |
 
 </head>
 <body <?php body_class(); ?>>
-<div class="grid_control show">
+	<?php// if ( ! is_page('About') ) { ?>
+<div class="grid_control">
 <label class="label-switch switch-x">
 	<span>X-SWITCH</span>
  	<input id="switch-x" type="checkbox" />
@@ -78,12 +79,16 @@ __      _| |__   __ _| |_   _ ___  | |_| |__   ___    __ _  ___  ___| |_ __ _| |
   	<div class="checkbox"></div>
 </label>
 </div><!-- End .grid_control--> 
+<?php// }; ?>
 <!-- WRAPPER AND VIEWPORT FOR OFFCANVAS NAV -->
+<?php if( ! is_page_template( 'template-grid-images.php' ) && ! is_front_page() ): ?>
 <div id="site-wrapper">
   <div id="site-canvas">
 	<div id="site-menu">
 		<?php get_sidebar('navget'); ?>		
 	</div>
+<?php endif; ?>
+
 	
 <?php 
 // article: https://raygun.io/blog/2014/07/making-svg-html-burger-button/
@@ -93,13 +98,21 @@ if ( ! is_page_template( 'template-grid-images.php' ) && ! is_front_page() ) {	?
 
 	<div class="site-header" role="banner">
 		<div class="container header-contents">
-			<img class="portada portfolio" src="<?php echo $img_assets; ?>/004-head.jpg" />
+			<?php if  (is_page('About') ) { ?>
+					<!--<img class="portada portfolio" src="<?php echo $img_assets; ?>/comet-mcnaught-001.jpg" />-->
+					<img class="portada about" src="<?php echo $img_assets; ?>/004-head.jpg" />
+					
+				<?php } else { ?>
+					<img class="portada portfolio" src="<?php echo $img_assets; ?>/004-head.jpg" />
+			<?php } ?>
 			<header class="navigation navigation-fixed" role="banner">
 		    	<div class="navigation-wrapper">
 		       		<a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
 		       		<nav role="navigation">
-				    <a href="#" class="toggle-nav">
+				    
 
+			
+					<a href="#" class="toggle-nav">
 					 <div id="hamburger" class="hamburglar">
 
 					    <div class="burger-icon">
@@ -180,7 +193,18 @@ if ( ! is_page_template( 'template-grid-images.php' ) && ! is_front_page() ) {	?
 	<?php endif; // ends the conditional argument ?>
 
 
-	<?php } ?>
+	<?php// } ?>
+	<?php if( is_page('About') ) { ?>
+		<!--<div class="copy-alma">Milky Way over the Chajnantor Plain &copy; ALMA </div>-->
+		<!--<div class="wrapper-quote-img">
+			<div class="cuerpo-quote-img"><blockquote>Lo que distingue al hombre de los animales es que el primero se esfuerza en aferrar el orden implícito del mundo que le rodea. <em>Conocer el orden</em> es una cualidad esencial del humano [...]. Escoger entre la inconmensurable multitud de estrellas determinados agrupamientos y designarlos con nombres de demonios o de animales no es un juego, sino el intento humano de entender, de orientarse en el caos, de adquirir una representación mental <em>coherente</em>. </blockquote></div>
+
+			<div class="pie-quote-img"><p>Por Aby Warburg. <cite>Texto de presentación de la Exposición de Astrología y Astronomía que organizó para el Planetario de Hamburgo, en torno al año 1930</cite>. Warburg Institute, Londres.</p></div>
+		</div>--><!-- /.wrapper-quote -->
+		
+	
+	<?php } ?>	 
+<?php  } ?>
 
 
 	<!-- MAIN CONTENT AREA -->

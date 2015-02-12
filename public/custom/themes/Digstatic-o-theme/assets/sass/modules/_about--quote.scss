@@ -1,0 +1,306 @@
+#site-menu{
+	padding-top: 0;
+}
+	#site-wrapper.show-nav{
+		background-color: #7FFFD4;
+	#site-canvas{
+		background-color: #fff;		
+	}
+
+}
+
+h2{
+
+
+	p + &{
+
+		padding-bottom: $base-line-height;
+		line-height: 1.5em;
+		padding-top: $base-line-height;	
+	}
+	.page-id-80 &{
+		font-weight: normal;
+	}
+
+}
+p{
+padding-bottom: $base-line-height;
+}
+
+// .wrapper-quote-img{
+// //position:relative;
+// //position:absolute;
+// @include span-columns(12);
+// //top:2em;
+// //bottom:3.225em;
+// //right: 1em;
+// margin-top:0;
+// margin-bottom:0;
+
+
+
+// 	.cuerpo-quote-img{
+// 		border-left: none;
+// 		color:#cdcdcd;
+// 		font-size: 1.125em;
+// 		line-height: 1.425em;
+// 		text-align: right;
+// 		padding-right: 2em;
+// 		@include span-columns(6 of 12);
+// 		@include shift(6);
+
+// 	}
+// 	.pie-quote-img{
+// 		@include span-columns(6 of 12);
+// 		@include shift(6);
+// 		text-align: right;
+// 		padding-right: 2em;
+// 		color: #777;
+		
+// 	}
+// }
+// .wrapper-quote{
+
+// 	float:left; 
+// 	width:100%; 
+// 	display:inline-block;
+
+//     @include media ($large-level-d-up) {
+
+// 		float:left; 
+// 		width:40%; 
+// 		display:inline-block;
+//     }
+// }
+.wrapper-quote{
+margin-bottom:$base-line-height;
+float:right;
+width:100%;
+display:inline-block;
+    @include media ($medium-level-c-up) {
+	margin-bottom: 0;
+	float:right;
+	width:60%;
+
+	//border-top: 2px solid #777;
+	//border-bottom: 2px solid #777;
+    }
+    @include media ($large-level-d-up) {
+	margin-bottom: 0;
+	float:right;
+	width:60%;
+	margin-right: -4em;
+	margin-left:4em;
+    }
+	
+
+	.cuerpo-quote{
+		blockquote{			
+			margin:12px 0 0;
+			border-left: none;
+			padding-left: 0;
+		    @include media ($medium-level-c-up) {
+		    	margin:60px 0 0;
+		    	border-top: 2px solid #777;
+		    	margin-left: 2em;
+		    }
+		    @include media ($large-level-d-up) {
+		    	margin-left: 0em;
+		    }
+		}
+		border-left: none;
+		color:#ddd;
+		font-size: 1.875em; //30px
+		line-height: 1.25em; //24+12=36
+		text-align: right;
+	}
+	.pie-quote{
+		//border-bottom: 2px solid #777;
+		text-align: right;
+		margin:0 0 24px;
+		color: #777;
+	    @include media ($medium-level-c-up) {
+	    	border-bottom: 2px solid #777;
+	    	//margin-left: 60px;	
+			margin:0 0 48px 60px;    	
+	    }
+	    @include media ($large-level-d-up) {
+	    	//border-bottom: 2px solid #777;
+	    	//margin-left: 60px;	
+			margin:0 0 48px 0px;    	
+	    }		
+	}
+}
+
+.page-id-80{
+	&:hover{
+	//background-image: url(http://basehold.it/i/24/ff0000); 
+    //background: url(http://basehold.it/i/28); 
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+
+	}
+    img.portada{
+	     // opacity: 0.95;
+    }
+	.container-frame.main{
+		@include outer-container;
+		max-width: 890px;	
+		.row{
+			padding:1.5em 2em 3em 2em;
+			overflow: visible;
+		}
+	}
+	.entry-header{
+		padding-bottom: 36px;
+		h1{
+			display: none;
+			//font-family: $sans-serif;
+			//font-size: 2.825em;
+			//position: relative;
+			//top: 2.5em;
+			//left:2.75em;
+			//z-index: -1;
+		}
+
+	}
+	.wrapper-profile{
+	    float: left;
+	    width: 100%;
+	    display: inline-block;
+		@include media ($small-level-b-up) {
+			width: 70%;	
+			max-width: 330px;
+		}
+	    @include media ($medium-level-c-up) {
+	    	width: 40%;	
+	    	max-width: 40%;
+	    }
+
+    	.round{
+			float:left;
+			display: inline-block;
+			width: 65%;
+			max-width: 120px;
+			
+			@include media ($small-level-a-up) {
+				max-width: 150px;
+			}
+			@include media ($small-level-b-up) {
+				//max-width: 150px;
+			}
+		    @include media ($medium-level-c-up) {
+				max-width: 100px;
+		    }
+	        @include media ($large-level-d-up) {
+				max-width: 150px;
+		    }
+		    img{
+		    	width:100%;
+		    	height:auto;
+		    }
+    	}
+		.pie-profile{
+			float:left;
+			display: inline-block;
+			width: 35%;
+			h1{
+				font-size: 3em;
+				visibility: hidden;
+				&:before{
+				content:'bout';
+				visibility: visible;
+			    display: block;
+				}
+				@include media ($small-level-a-up) {
+				font-size: 4em;
+				}
+				@include media ($small-level-b-up) {
+				font-size: 3.5em;
+				}
+			    @include media ($medium-level-c-up) {
+				font-size: 2.5em;
+		    	}
+		        @include media ($large-level-d-up) {
+				font-size: 4em;
+		    	}
+			}
+		}
+	}
+	p{
+		font-size: 1.125em;
+		line-height: 1.335em;
+	}
+	.container.header-contents #breadcrumb-menu-breadcrum {
+	position: absolute;
+	bottom: 24px;
+	font-family: Helvetica, Arial, sans-serif;
+	}
+	.copy-alma{
+		position: relative;
+		text-align: right;
+		right: 32px;
+		font-size: 0.825em;
+		color: #777;
+	}
+	#site-menu{
+		padding-top: 0;
+	}
+	#site-wrapper.show-nav{
+		background-color: #7FFFD4;
+		#site-canvas{
+			background-color: #fff;		
+		}
+
+
+	}
+}
+
+
+// 	.article-intro{
+// 	@include span-columns(12);
+
+// 	p{
+// 		min-width: 40%;
+// 	}
+
+// 	}
+
+// 	.wrapper-quote{
+// 	//position:relative;
+// 	//position:absolute;
+// 	//top:8em;
+// 	top:-5em;
+// 	margin-top:0;
+// 	margin-bottom:0;
+
+
+
+// 		.cuerpo-quote{
+// 			border-left: none;
+// 			color:#cdcdcd;
+// 			font-size: 1.125em;
+// 			line-height: 1.425em;
+// 			text-align: right;
+// 			@include span-columns(6 of 12);
+// 			@include shift(6);
+// 			//padding-right:3em;
+// 			font-family: $sans-serif;
+// 				blockquote{
+// 				//border-left: none;
+// 				color: #777;	
+// 				}
+// 				em{
+// 					//font-weight: bold;
+// 				}
+
+
+// 		}
+// 		.pie-quote{
+// 			@include span-columns(6 of 12);
+// 			@include shift(6);
+// 			text-align: right;
+			
+// 		}
+// 	}	
+// }

@@ -40,8 +40,11 @@
 					?>
 				</footer> <!-- end entry-footer -->
 			</article>
+			
+			<?php if ( ! is_page('About') ) { ?>
 
-			<?php comments_template(); ?>
+				<?php comments_template(); ?>
+			<?php } ?>
 		<?php endwhile; ?>
 	</div> <!-- end main-content -->
 

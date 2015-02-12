@@ -41,7 +41,7 @@
 @import "library/config";
 
 //Includes
-// @import "partials/base";
+@import "partials/base";
 
 
 @import "partials/layout";
@@ -53,6 +53,7 @@
 @import "modules/grid-images";
 
 @import "partials/view-grid";
+@import "modules/about--quote";
 
 
 

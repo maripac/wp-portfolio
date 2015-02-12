@@ -43,11 +43,21 @@
   position: relative;
   overflow: hidden;
   width: 100%;
+  //background: #333;
+
+}
+.grid_control.show.hide + #site-wrapper.show-nav{
+  background-color: #333;
+  & > #site-canvas{
+   background-color: #fff;   
+  }
+
 }
 #site-canvas {
   width: 100%;
   height: 100%;
   position: relative;
+    //background: #fff;
   
   -webkit-transform: translateX(0);
   transform: translateX(0);
@@ -55,33 +65,49 @@
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   
-  -webkit-transition: 260ms ease all;
-  transition: 260ms ease all;
+  -webkit-transition: 280ms ease all;
+  transition: 280ms ease all;
  
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
    
 }
 .show-nav #site-canvas {
-  -webkit-transform: translateX(260px);
-  transform: translateX(260px);
+  -webkit-transform: translateX(280px);
+  transform: translateX(280px);
   
-  -webkit-transform: translate3d(260px, 0, 0);
-  transform: translate3d(260px, 0, 0);
+  -webkit-transform: translate3d(280px, 0, 0);
+  transform: translate3d(280px, 0, 0);
 }
+// #site-menu {
+//   width: 260px;
+//   height: 100%;
+//   min-height: 100%;
+//   position: absolute;
+//   top: 0;
+//   left: -260px;
+//   background: #333;
+//   color:#fff;
+//   overflow: auto;
+//   padding-top:60px;
+//   & + a.toggle-nav{
+//   }
+// }
 #site-menu {
-  width: 260px;
-  height: 100%;
-  min-height: 100%;
-  position: absolute;
-  top: 0;
-  left: -260px;
-  background: #333;
-  color:#fff;
-  & + a.toggle-nav{
-  }
+width: 280px;
+height: 100%;
+min-height: 100%;
+position: relative;
+top: 0;
+margin-left: -280px;
+ //background-color:#7FFFD4;
+background: #333;
+color: #fff;
+overflow: auto;
+padding-top: 60px;
+//padding-bottom: 30px;
+float: left;
 }
-
 .wrapper-navget{
   .portfolio-fields{
   //  padding-top:4em;
@@ -107,19 +133,21 @@
   h5{
     text-transform: uppercase;
     line-height: 1.5em;
-    padding-top: 2.5em;
-    font-size: 0.625em;
-    text-decoration: underline;
-    color: #111; 
+    padding-top: 2em;
+    //margin-left: -1em;
+    font-size: 0.8725em;
+    //text-decoration: underline;
+    color: #333; 
   }
 }
 .wrapper-navget{
   background-color:#7FFFD4;
   margin:0;
-  width:260px;
-  padding-left:4em;
-    padding-right:4em;
-    padding-bottom: 2em;
+  width:280px;
+  padding-left:2em;
+  //padding-left:4em;
+  //  padding-right:4em;
+  //padding-bottom: 60px;
 
 
   ul{
@@ -136,54 +164,75 @@ body, html{
        // border-bottom: 12px solid #333;
     min-height: 100%;
   height: auto !important;
-  height: 100%;
+  //height: 100%;
   /* Negative indent footer by its height */
   
   /* Pad bottom by footer height */
-  padding: 0px 0 160px;
-  //padding: 0px 0 60px;
-  //margin: 0 auto -60px;
+ padding: 0px 0 60px;
+ margin: 0px 0 -60px;
 }
-#site-menu{
+// #site-menu{
 
 
-  width: 260px;
-/* height: 100%; */
-min-height: 100%;
-position: absolute;
-top: 0;
-bottom: -90px;
-left: -260px;
-background: #333;
-color: #fff;
-overflow-y:scroll;
-   //width:90%;
-  padding-top:36px;
-  margin-bottom: -60px;
-  //background-color:#7FFFD4;
-         // border-bottom: 24px solid #333;
+// width: 260px;
+// /* height: 100%; */
+// min-height: 100%;
+// position: absolute;
+// top: 0;
+// overflow:visible;
+// //bottom: -90px;
+// left: -260px;
+// background: #333;
+// color: #fff;
+// overflow-y:scroll;
+// max-width:90%;
+//   //padding-top:36px;
+//   //margin-bottom: -60px;
+
+// }
+.wrapper-navget{
+  padding-bottom: 2em;
 }
 #site-wrapper{
 
   min-height: 100%;
   height: auto !important;
   height: 100%;
-    padding: 0px 0 60px;
+  //  padding: 0px 0 60px;
   /* Negative indent footer by its height */
-  margin: 0 auto -60px;
-
+  margin: 0 auto -30px;
+ //background-color:#7FFFD4;
   /* Pad bottom by footer height */
   //padding: 0 0 60px;
+}
+.grid-items-lines{
+  //padding-top: 30px;
+  //padding-bottom: 60px;
+}
+.copyright-front{
+  width:100%;
+  text-align: right;
+  height:30px;
+  
+  font-size: 3.5em;
+  text-transform: lowercase;
+  position: relative;
+  bottom:-0.25em;
+  p{
+    padding-bottom: 0;
+    padding-right: 32px;
+  }
 }
 
 /* Set the fixed height of the footer here */
 #footer {
   //        border-top: 12px solid #333;
-  margin:0px auto 0 auto;
-
- height: 60px;
+  //margin:0px auto;
+margin:-30px auto 0 auto;
+ height: 30px;
  //border-top:2px solid $hover-link-color;
-
+overflow:auto;
+position: relative;
  background-color: #222;
  //z-index: 99999999;
 }
