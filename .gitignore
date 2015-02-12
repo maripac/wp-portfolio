@@ -25,6 +25,7 @@ Temporary Items
 sitemap.xml
 sitemap.xml.gz
 config/env/development.php
+config/env/sample_environment.php
 vendor/
 docs/
 db/
@@ -38,7 +39,7 @@ public/custom/themes/Digstatic-o-theme/assets/sass/base/
 public/custom/themes/Digstatic-o-theme/assets/sass/neat/
 public/custom/themes/Digstatic-o-theme/assets/sass/bourbon/
 public/custom/themes/Digstatic-o-theme/assets/js/
-public/custom/uploads/
+
 public/custom/themes/Digstatic-o-theme/.sass-cache/
 public/custom/themes/Digstatic-o-theme/backup-header.php
 public/custom/themes/Digstatic-o-theme/footer__sidebar--footer.php
