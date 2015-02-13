@@ -15,7 +15,8 @@
  */
 
 define('APP_ROOT', dirname(__DIR__));
-define('APP_ENV', getenv('APPLICATION_ENV'));
+//define('APP_ENV', getenv('APPLICATION_ENV'));
+define('APP_ENV', apache_getenv('APPLICATION_ENV'));
 /**define('APP_ENV', 'development'); */
 
 /** Require environment specific configuration */
