@@ -19,6 +19,7 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+public/custom/themes/Digstatic-o-theme/js/
 
 *.log
 .htaccess
@@ -38,7 +39,7 @@ public/custom/themes/Digstatic-o-theme/assets/node_modules/
 public/custom/themes/Digstatic-o-theme/assets/sass/base/
 public/custom/themes/Digstatic-o-theme/assets/sass/neat/
 public/custom/themes/Digstatic-o-theme/assets/sass/bourbon/
-public/custom/themes/Digstatic-o-theme/assets/js/
+
 
 public/custom/themes/Digstatic-o-theme/.sass-cache/
 public/custom/themes/Digstatic-o-theme/backup-header.php
