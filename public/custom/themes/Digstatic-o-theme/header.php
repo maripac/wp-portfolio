@@ -66,7 +66,7 @@ __      _| |__   __ _| |_   _ ___  | |_| |__   ___    __ _  ___  ___| |_ __ _| |
 
 </head>
 <body <?php body_class(); ?>>
-	<?php// if ( ! is_page('About') ) { ?>
+
 <div class="grid_control">
 <label class="label-switch switch-x">
 	<span>X-SWITCH</span>
@@ -79,7 +79,7 @@ __      _| |__   __ _| |_   _ ___  | |_| |__   ___    __ _  ___  ___| |_ __ _| |
   	<div class="checkbox"></div>
 </label>
 </div><!-- End .grid_control--> 
-<?php// }; ?>
+
 <!-- WRAPPER AND VIEWPORT FOR OFFCANVAS NAV -->
 <?php if( ! is_page_template( 'template-grid-images.php' ) && ! is_front_page() ): ?>
 <div id="site-wrapper">
@@ -193,7 +193,7 @@ if ( ! is_page_template( 'template-grid-images.php' ) && ! is_front_page() ) {	?
 	<?php endif; // ends the conditional argument ?>
 
 
-	<?php// } ?>
+	
 	<?php if( is_page('About') ) { ?>
 		<!--<div class="copy-alma">Milky Way over the Chajnantor Plain &copy; ALMA </div>-->
 		<!--<div class="wrapper-quote-img">
