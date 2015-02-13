@@ -26,7 +26,7 @@ if (file_exists(APP_ROOT . '/config/env/local.php')) {
 } else if (APP_ENV){
 	require APP_ROOT . '/config/env/' . APP_ENV . '.php';
 } else {
-	require APP_ROOT . '/config/env/development.php';
+	require APP_ROOT . '/config/env/production.php';
 }
 
 define('WP_DEFAULT_THEME', 'Digstatic-o-theme');
