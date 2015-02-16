@@ -25,7 +25,6 @@ public/custom/themes/Digstatic-o-theme/js/
 .htaccess
 sitemap.xml
 sitemap.xml.gz
-config/env/development.php
 
 config/env/production.php
 
