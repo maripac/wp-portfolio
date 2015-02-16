@@ -39,15 +39,17 @@ add_action( 'add_meta_boxes', 'add_portfolio_metaboxes' );
  * $callback_args	array						X		null
  */
 function add_portfolio_metaboxes() {
+	add_meta_box('wpt_portfolio_brief', 'Work Brief', 'wpt_portfolio_brief', 'portfolio', 'normal', 'high');
 	add_meta_box('wpt_portfolio_describe', 'Work Description', 'wpt_portfolio_describe', 'portfolio', 'normal', 'high');
 	add_meta_box('wpt_portfolio_year', 'Work Date', 'wpt_portfolio_year', 'portfolio', 'normal', 'high');	
 }
 
-// The Event Location Metabox
+
 
 // The Event Location Metabox
 
-function wpt_portfolio_describe() {
+// The Event Location Metabox
+function wpt_portfolio_brief() {
 	global $post;
 	
 	// Noncename needed to verify where the data originated
@@ -59,14 +61,16 @@ function wpt_portfolio_describe() {
 //$plugin_path = dirname(plugin_basename(__FILE__));
 	
 	// Get the location data if its already been entered
-	$desc_portfolio = get_post_meta($post->ID, '_desc_portfolio', true);
+    $portfolio_brief = get_post_meta($post->ID, '_portfolio_brief', true);
 	
 	// Echo out the field
-        echo '<p>Enter a Description:</p>';
-		echo '<textarea rows="4" cols="50" name="_desc_portfolio" class="widefat"> ' . $desc_portfolio . ' </textarea>';
-//Enter text here...</textarea><textarea type="text" name="_location" value="' . $location  . '" class="widefat" />';
+
+        echo '<p>ID/Nombre:</p>';
+        echo '<input type="text" name="_portfolio_brief" value="' . $portfolio_brief  . '" class="widefat" />';
 
 }
+
+
 // The Event Location Metabox
 
 function wpt_portfolio_year() {
@@ -85,8 +89,28 @@ function wpt_portfolio_year() {
 	
 	// Echo out the field
 
-        echo '<p>Year of production</p>';
+        echo '<p>Año:</p>';
         echo '<input type="text" name="_portfolio_year" value="' . $portfolio_year  . '" class="widefat" />';
+
+}
+function wpt_portfolio_describe() {
+	global $post;
+	
+	// Noncename needed to verify where the data originated
+	echo '<input type="hidden" name="portfoliometa_noncename" id="portfoliometa_noncename" value="' . 
+	wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
+
+
+
+//$plugin_path = dirname(plugin_basename(__FILE__));
+	
+	// Get the location data if its already been entered
+	$desc_portfolio = get_post_meta($post->ID, '_desc_portfolio', true);
+	
+	// Echo out the field
+        echo '<p>Breve resumen o técnica empleada:</p>';
+		echo '<textarea rows="4" cols="50" name="_desc_portfolio" class="widefat"> ' . $desc_portfolio . ' </textarea>';
+//Enter text here...</textarea><textarea type="text" name="_location" value="' . $location  . '" class="widefat" />';
 
 }
 
@@ -107,9 +131,10 @@ function wpt_save_portfolio_meta($post_id, $post) {
 	// OK, we're authenticated: we need to find and save the data
 	// We'll put it into an array to make it easier to loop though.
 	
-	
-	$portfolio_meta['_desc_portfolio'] = $_POST['_desc_portfolio'];
+
+	$portfolio_meta['_portfolio_brief'] = $_POST['_portfolio_brief'];	
 	$portfolio_meta['_portfolio_year'] = $_POST['_portfolio_year'];
+	$portfolio_meta['_desc_portfolio'] = $_POST['_desc_portfolio'];
 	
 	// Add values of $events_meta as custom fields
 	

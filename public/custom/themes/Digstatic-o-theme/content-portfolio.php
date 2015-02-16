@@ -27,10 +27,9 @@
       		<a id="post-<?php the_ID(); ?>" href="<?php the_permalink(); ?>" rel="bookmark">
       			<h2><?php the_title(); ?></h2>
       		</a>
-      		<p>	<?php// digg_post_meta_b(); ?></p>
-      		<div>	<?php
-				digg_portfolio_meta_b();
-				?>
+      		<div>
+      			<p>	<?php digg_portfolio_meta_c(); ?></p>	
+      			
       		</div>
     	</div>
   	</div>
@@ -40,16 +39,8 @@
       		<a id="post-<?php the_ID(); ?>" href="<?php the_permalink(); ?>" rel="bookmark">
       			<h2><?php the_title(); ?></h2>
       		</a>
-      		<p>	<?php digg_post_meta_b(); ?></p>
-			<?php
-			// if ( is_search() ) {
-			// 	the_excerpt();
-			// } else {
-				the_content( __( 'Continue reading &rarr;', 'digg' ) );
-
-			// 	wp_link_pages();
-			// }
-			?>
+      		<p>	<?php digg_portfolio_meta_c(); ?></p>
+			
       		
     	</div>
 <?php } ?>
@@ -114,20 +105,41 @@
 </div> <!--End wrapper-main-->
 <div class="sidebar aside-portfolio-desc">
 
-	
-	<?php
-	digg_portfolio_meta_b();
-	?>
-	<div>	
-	<?php
-		// Display the meta information
-		digg_snippets_meta();
-	?>
+
+	<div class="entry-content portfolio">
+			<div class="term index">
+				<div class="chrome">
+					<span class="btn btn-term close"></span>
+					<span class="btn btn-term min"></span>
+					<span class="btn btn-term max"></span>
+										<?php
+					digg2_portfolio_meta_b2();
+					?>
+
+				</div>
+				<div class="shell">
+					<div class="workshopper">
+					<div class="portfolio-meta"><div style="padding:2em;">
+
+					<?php
+					digg_portfolio_meta_b();
+					?>
+
 		
 	<?php
 		// Display the meta information
 		digg_post_meta_d();
 	?>
+					</div></div><!--End portfolio-meta-->
+					</div>
+				</div>
+			</div>
+	</div><!-- end entry-content -->
+
+	
+
+	<div>	
+
 
 
 	</div><!-- end entry-header -->

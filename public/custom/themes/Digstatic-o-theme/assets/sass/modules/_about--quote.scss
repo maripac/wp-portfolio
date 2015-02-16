@@ -9,23 +9,6 @@
 
 }
 
-h2{
-
-
-	p + &{
-
-		padding-bottom: $base-line-height;
-		line-height: 1.5em;
-		padding-top: $base-line-height;	
-	}
-	.page-id-80 &{
-		font-weight: normal;
-	}
-
-}
-p{
-padding-bottom: $base-line-height;
-}
 
 // .wrapper-quote-img{
 // //position:relative;
@@ -227,15 +210,8 @@ display:inline-block;
 			}
 		}
 	}
-	p{
-		font-size: 1.125em;
-		line-height: 1.335em;
-	}
-	.container.header-contents #breadcrumb-menu-breadcrum {
-	position: absolute;
-	bottom: 24px;
-	font-family: Helvetica, Arial, sans-serif;
-	}
+
+	
 	.copy-alma{
 		position: relative;
 		text-align: right;

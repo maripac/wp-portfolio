@@ -200,13 +200,15 @@ endif;
  */
 if ( ! function_exists( 'digg_post_meta_b' ) ) {
 	function digg_post_meta_b() {
-		echo '<ul class="list-inline entry-meta">';
+		echo '<div><ul class="list-inline entry-meta">';
+		echo '<li class="meta-date"> ' . get_the_date() . ' </li>';
 
 		if ( get_post_type() === 'post' || 'snippets' || 'events' || 'portfolio' ) {
 
 
 			// If the post is sticky, mark it.
 			if ( is_sticky() ) {
+
 				echo '<li class="meta-featured-post"><i class="fa fa-thumb-tack"></i> ' . __( 'Sticky', 'digg' ) . ' </li>';
 			}
 
@@ -219,7 +221,7 @@ if ( ! function_exists( 'digg_post_meta_b' ) ) {
 
 
 			// Get the date.
-			echo '<li class="meta-date"> ' . get_the_date() . ' </li>';
+			//echo '<li class="meta-date"> ' . get_the_date() . ' </li>';
 
 			// The categories.
 			// $category_list = get_the_category_list( ', ' );
@@ -288,6 +290,7 @@ if ( ! function_exists( 'digg_post_meta_b' ) ) {
 			// 	echo '</li>';
 			// }
 		}
+		echo '</ul><!--entry-meta--></div>';
 
 	}
 }
@@ -397,7 +400,7 @@ if ( ! function_exists( 'digg_post_meta_c' ) ) {
 }
 if ( ! function_exists( 'digg_post_meta_d' ) ) {
 	function digg_post_meta_d() {
-		//echo '<ul class="list-inline entry-meta">';
+		echo '<ul class="list-inline entry-meta">';
 
 		if ( get_post_type() === 'post' || 'snippets' || 'events' || 'portfolio' ) {
 
@@ -410,13 +413,15 @@ if ( ! function_exists( 'digg_post_meta_d' ) ) {
 			$id = get_the_ID();
 			$terms_listed = get_the_term_list( $id, 'fields' , '<li class="meta-tax">', '</li>' );
 			if ( $terms_listed ) {
-				echo '<ul class="meta-fields">' . $terms_listed . ' </ul>';
+				echo '<h5>Taxonomy:</h5><ul class="meta-fields">' . $terms_listed . ' </ul>';
 				
 			}
 
 		}
+		echo '</ul>';
 	}
 }
+
 if ( ! function_exists( 'digg_post_meta_date' ) ) {
 	function digg_post_meta_date() {
 
@@ -471,30 +476,105 @@ if ( ! function_exists( 'digg_snippets_meta' ) ) {
 		echo '</div><!--End snippets-meta-->';
 	}
 }
-
-
-if ( ! function_exists( 'digg_portfolio_meta_b' ) ) {
-	function digg_portfolio_meta_b() {
-		echo '<div class="portfolio-meta">';
+if ( ! function_exists( 'digg_portfolio_meta_c' ) ) {
+	function digg_portfolio_meta_c() {
+	echo '<div class="snippets-meta">';
 		if ( get_post_type() === 'portfolio' ) {
+ 
+			
+						$id = get_the_ID();
+			$portfolio_meta43 = get_post_meta($id, "_portfolio_brief", true);
+			
+				if ( $portfolio_meta43 ) {
+					echo '<p class="portfolio-meta">' . $portfolio_meta43 . '</p>';	
 
-			$id = get_the_ID();
-			$portfolio_meta1 = get_post_meta($id, "_portfolio_year", true);
-			$portfolio_meta2 = get_post_meta($id, "_desc_portfolio", true);
+				}
+			
+			
 			//$snippet_meta3 = get_post_meta($id, "_alias", true);
-			if ( $portfolio_meta2 ) {
-			echo '<h4 class="title-portfolio-meta title-snippets-meta">Descripción</h4>';
-			echo '<p class="portfolio-meta">' . $portfolio_meta2 . '</p>';	
+			$id = get_the_ID();
+			$portfolio_meta1 = get_post_meta($id, "_portfolio_year", true);			
+			if ( $portfolio_meta1 ) {
+			echo '<h5 class="portfolio-meta">Año:</h5> <span class="year">' . $portfolio_meta1 . '</span>';
 			}
+			$id = get_the_ID();
+			$portfolio_meta32 = get_post_meta($id, "_desc_portfolio", true);
+
+			if ( $portfolio_meta32 ) {
+			
+			echo '<p class="portfolio-meta">' . $portfolio_meta32 . '</p>';	
+			}
+
+			
+			
+			
+
 		
 		
 			
-			if ( $portfolio_meta1 ) {
-			echo '<h5 class="portfolio-meta">Produced in:</h5> <span class="year">' . $portfolio_meta1 . '</span>';
-			}
+
 
 		}
 		echo '</div><!--End portfolio-meta-->';
+	}
+}
+
+if ( ! function_exists( 'digg_portfolio_meta_b' ) ) {
+	function digg_portfolio_meta_b() {
+	
+		if ( get_post_type() === 'portfolio' ) {
+ 
+			$id = get_the_ID();
+			//$portfolio_meta3 = get_post_meta($id, "_portfolio_brief", true);
+			$portfolio_meta1 = get_post_meta($id, "_portfolio_year", true);
+			$portfolio_meta2 = get_post_meta($id, "_desc_portfolio", true);
+			//$snippet_meta3 = get_post_meta($id, "_alias", true);
+			
+			if ( $portfolio_meta1 ) {
+			echo '<h5 class="portfolio-meta">Año:</h5> <span class="year">' . $portfolio_meta1 . '</span>';
+			}
+			if ($portfolio_meta2 == '') {
+			
+			echo '<h3 class="title-portfolio-meta title-snippets-meta">Resumen breve:</h3><p class="portfolio-meta">' . $portfolio_meta2 . '</p>';	
+			}
+
+		
+		
+			
+
+
+		}
+		//echo '</div></div><!--End portfolio-meta-->';
+	}
+}
+
+if ( ! function_exists( 'digg2_portfolio_meta_b2' ) ) {
+	function digg2_portfolio_meta_b2() {
+		echo '<span class="portfolio-meta_name" style="font-size:0.675em; float:right; text-transform:uppercase; color:#DD0033; text-align:center; position:relative; right:2em;">';
+		if ( get_post_type() === 'portfolio' ) {
+ 
+			$id = get_the_ID();
+			
+			$portfolio_metab2 = get_post_meta($id, "_portfolio_brief", true);
+			//$snippet_meta3 = get_post_meta($id, "_alias", true);
+			// if ( $portfolio_meta3 ) {
+			// echo '<h3 class="title-portfolio-meta title-snippets-meta">ID/Nombre:</h3>';
+			// echo '<p class="portfolio-meta">' . $portfolio_meta3 . '</p>';	
+			// }
+			// if ( $portfolio_meta1 ) {
+			// echo '<h5 class="portfolio-meta">Año:</h5> <span class="year">' . $portfolio_meta1 . '</span>';
+			// }
+			if ( $portfolio_metab2 ) {
+			echo $portfolio_metab2 ;	
+			}
+
+		
+		
+			
+
+
+		}
+		echo '</span><!--End portfolio-meta-->';
 	}
 }
 /*	
@@ -579,10 +659,10 @@ if ( ! function_exists( 'digg_widget_init' ) ) {
 					'name' => __( 'Main Widget Area', 'digg' ),
 					'id' => 'sidebar-1',
 					'description' => __( 'Appears on posts and pages.', 'digg' ),
-					'before_widget' => '<div id="%1$s" class="widget %2$s">',
-					'after_widget' => '</div> <!-- end widget -->',
-					'before_title' => '<h5 class="widget-title">',
-					'after_title' => '</h5>',
+					'before_widget' => '<div class="term index"><div class="chrome"><div id="%1$s" class="widget %2$s">',
+					'after_widget' => '</div> <!-- end widget --></div></div>',
+					'before_title' => '<span class="widget-title">',
+					'after_title' => '</span></div></div><div class="shell notover"><div class="workshopper">',
 				)
 			);
 

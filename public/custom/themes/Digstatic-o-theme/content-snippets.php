@@ -5,11 +5,6 @@
  *
  */
 ?>
-<?php
-			// If the post has a thumbnail and it's not password protected
-			// then display the thumbnail
-			//if ( has_post_thumbnail() && ! post_password_required() ) : ?>
-			<!--	<figure class="entry-thumbnail"><?php // the_post_thumbnail(); ?></figure>-->
 	<?php //endif; 
 
 	// If it's single page, display the title

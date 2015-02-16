@@ -12,9 +12,9 @@
 <?php
 $item_img_home = get_theme_root_uri() .'/Digstatic-o-theme/assets/images/home.png';
 $item_img_snippets = get_theme_root_uri() .'/Digstatic-o-theme/assets/images/code003.png';
-$item_img_portfolio = get_theme_root_uri() .'/Digstatic-o-theme/assets/images/portfolio003.png';
+$item_img_portfolio = get_theme_root_uri() .'/Digstatic-o-theme/assets/images/portfolio005.png';
 $item_img_tag = get_theme_root_uri() .'/Digstatic-o-theme/assets/images/tag012.png';
-$item_img_about = get_theme_root_uri() .'/Digstatic-o-theme/assets/images/about005.png';
+$item_img_about = get_theme_root_uri() .'/Digstatic-o-theme/assets/images/about007.png';
 $item_img_note = get_theme_root_uri() .'/Digstatic-o-theme/assets/images/notebook-cover003.png';
 $item_img_jekyll = get_theme_root_uri() .'/Digstatic-o-theme/assets/images/jekyll.png';
 ?>
@@ -26,11 +26,12 @@ $item_img_jekyll = get_theme_root_uri() .'/Digstatic-o-theme/assets/images/jekyl
     <h1>About</h1>
     <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
   </a>
-  <a href="<?php bloginfo('url'); ?>/portfolio" class="grid-item grid-item-big">
-    <img src="<?php echo $item_img_portfolio; ?>" alt="">
-    <h1>Portfolio</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, illum.</p>
+  <a href="https://gostak.io" target="_blank" class="grid-item grid-item-big">
+    <img src="<?php echo $item_img_jekyll; ?>" alt="">
+    <h1>Documentación de procesos en Jekyll</h1>
+    <p>Lorem ipsum consectetur dolor sit amet, consectetur adipisicing elit. Rem, illum.</p>
   </a>
+
   <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Posts' ) ) ); ?>" class="grid-item">
     <img src="<?php echo $item_img_note; ?>" alt="">
     <h1>Blog</h1>
@@ -42,11 +43,12 @@ $item_img_jekyll = get_theme_root_uri() .'/Digstatic-o-theme/assets/images/jekyl
     <h1>Snippets</h1>
     <p>Lorem ipsum consectetur dolor sit amet, consectetur adipisicing elit. Rem, illum.</p>
   </a>
-  <a href="https://gostak.io" class="grid-item">
-    <img src="<?php echo $item_img_jekyll; ?>" alt="">
-    <h1>Documentación de procesos en Jekyll</h1>
-    <p>Lorem ipsum consectetur dolor sit amet, consectetur adipisicing elit. Rem, illum.</p>
+  <a href="<?php bloginfo('url'); ?>/portfolio" class="grid-item">
+    <img src="<?php echo $item_img_portfolio; ?>" alt="">
+    <h1>Portfolio</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, illum.</p>
   </a>
+
 
 
   <?php //start by fetching the terms for the animal_cat taxonomy

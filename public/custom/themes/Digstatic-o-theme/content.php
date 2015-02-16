@@ -23,17 +23,11 @@
 			<h1><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 		<?php endif; ?>
 
-		<p class="entry-meta">
-			<ul class="entry-taxonomies">
-
-			</ul>
 			<?php
 				// Display the meta information
 				digg_post_meta_b();
 			?>
 
-
-		</p>
 	</header><!-- end entry-header -->
 	<!-- Article content -->
 	<div class="entry-content">

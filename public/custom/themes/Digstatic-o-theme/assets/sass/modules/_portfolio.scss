@@ -5,6 +5,33 @@
 *------------------------------------------------------------------------------------
 */  
 
+a.toggle-nav{
+  span{
+      transition: color 0.1s linear;
+      color: #322de8;
+  }
+  .burger-bun-top, .burger-bun-bot, .burger-filling{
+      transition: background-color 0.1s linear;
+      background-color: #322de8;
+  }
+  &:hover{
+
+    .burger-bun-top, .burger-bun-bot, .burger-filling{
+      background-color:$navigation-active-link-color;
+    }
+    span {
+         // color: $navigation-color-hover;
+         color:$navigation-active-link-color;
+    }
+    
+      
+  }
+
+}
+
+
+
+
 
 .hover-tile-outer {
  
@@ -131,7 +158,9 @@ header.navigation {
   // Mobile view
 
   .navigation-menu-button {
-    color: $navigation-color;
+    //color: $navigation-color;
+    transition: color 0.1s linear;
+    color: $base-accent-color;
     display: block;
     float: right;
     font-weight: 700;
@@ -144,11 +173,25 @@ header.navigation {
       display: none;
     }
 
-    &:focus,
+    
     &:hover {
-      color: $navigation-color-hover;
+     // color: $navigation-color-hover;
+    color:$navigation-active-link-color;
     }
   }
+  ul#js-navigation-menu a{
+    transition: color 0.1s linear;
+    color: $base-accent-color;
+  
+    
+    &:hover {
+     // color: $navigation-color-hover;
+    color:$navigation-active-link-color;
+  }
+}
+
+
+
 
   // Nav menu
 // #site-wrapper{

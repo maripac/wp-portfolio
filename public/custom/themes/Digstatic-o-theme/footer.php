@@ -194,9 +194,9 @@ else :
 	<script>
 		$(document).ready(function() {
 		  var menuToggle = $('#js-mobile-menu').unbind();
-		  var menuToggles = $('.grid_control').unbind();
+		  //var menuToggles = $('.grid_control').unbind();
 		  $('#js-navigation-menu').removeClass("show");
-		  $('.grid_control').removeClass("hide");
+		  //$('.grid_control').removeClass("hide");
 		  
 
 		  menuToggle.on('click', function(e) {
@@ -208,16 +208,16 @@ else :
 
 		        //$('.grid_control').removeAttr('style');
 		      }
-		      $('.grid_control').removeAttr('style');
+		     // $('.grid_control').removeAttr('style');
 		    });
-		    $('.grid_control').slideToggle(function(){
-		      if($('.grid_control').is(':hidden')) {
-		        //$('.grid_control').removeAttr('style');
-		     	//$('.grid_control').removeAttr('style');
+		    // $('.grid_control').slideToggle(function(){
+		    //   if($('.grid_control').is(':hidden')) {
+		    //     //$('.grid_control').removeAttr('style');
+		    //  	//$('.grid_control').removeAttr('style');
 
-		        //$('.grid_control').removeAttr('style');
-		      }
-		    });		    
+		    //     //$('.grid_control').removeAttr('style');
+		    //   }
+		    // });		    
 		  });
 		});
 
