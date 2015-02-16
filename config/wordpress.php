@@ -15,7 +15,8 @@
  */
 
 define('APP_ROOT', dirname(__DIR__));
-define('APP_ENV', getenv('APPLICATION_ENV'));
+//define('APP_ENV', getenv('APPLICATION_ENV'));
+define('APP_ENV', apache_getenv('APPLICATION_ENV'));
 /**define('APP_ENV', 'development'); */
 
 /** Require environment specific configuration */
@@ -26,7 +27,7 @@ if (file_exists(APP_ROOT . '/config/env/local.php')) {
 } else if (APP_ENV){
 	require APP_ROOT . '/config/env/' . APP_ENV . '.php';
 } else {
-	require APP_ROOT . '/config/env/development.php';
+	require APP_ROOT . '/config/env/production.php';
 }
 
 define('WP_DEFAULT_THEME', 'Digstatic-o-theme');

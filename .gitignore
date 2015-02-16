@@ -19,13 +19,16 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+public/custom/themes/Digstatic-o-theme/js/
 
 *.log
 .htaccess
 sitemap.xml
 sitemap.xml.gz
 config/env/development.php
+
 config/env/production.php
+
 vendor/
 docs/
 db/
@@ -38,7 +41,6 @@ public/custom/themes/Digstatic-o-theme/assets/node_modules/
 public/custom/themes/Digstatic-o-theme/assets/sass/base/
 public/custom/themes/Digstatic-o-theme/assets/sass/neat/
 public/custom/themes/Digstatic-o-theme/assets/sass/bourbon/
-
 public/custom/themes/Digstatic-o-theme/.sass-cache/
 public/custom/themes/Digstatic-o-theme/backup-header.php
 public/custom/themes/Digstatic-o-theme/footer__sidebar--footer.php

@@ -13,7 +13,7 @@
 + A class for creating new taxonomies that are compatible with the custom post types.
 + The bootstrap.php mu-plugin that instantiates these classes has been changed to allow use of singular and plural labels.
 + The bootstrap.php mu-plugin includes a sample block of code that registers a new post type Snippets and Events as well as a new taxonomy Languages that is activated for Snippets and Posts.
-+ The functions.php includes two different function declarations to output metadata for a post in different ways
++ The functions.php includes two different function declarations to output metadata for a post in different w
 
 	+ 	To make use of one or another, call the chosen 
 		function inside of the loop. It will execute, whenever 
