@@ -27,6 +27,7 @@ sitemap.xml
 sitemap.xml.gz
 
 config/env/production.php
+config/env/development.php
 
 vendor/
 docs/
