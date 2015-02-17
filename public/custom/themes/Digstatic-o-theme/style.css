@@ -408,6 +408,13 @@ body {
 *	END RESET TO LAYOUT
 *------------------------------------------------------------------------------------
 */
+.post-type-archive-portfolio .container.header-contents #breadcrumb-menu-breadcrum {
+  position: relative;
+  bottom: 0;
+  left: 32px;
+  right: 48px;
+  font-family: Helvetica, Arial, sans-serif; }
+
 .container.header-contents {
   position: relative;
   max-height: 100%;
@@ -681,6 +688,8 @@ body {
   height: auto;
   min-width: 100%;
   min-height: 180px; }
+  .header-contents img.portada.archive {
+    min-height: 60px; }
   @media screen and (min-width: 30em) {
     .header-contents img.portada {
       width: 100%;
@@ -755,6 +764,10 @@ aside .widget {
 
 #footer div.copyright {
   text-align: right; }
+
+.hover-tile-outer {
+  width: 33%;
+  border: 4px solid #fff; }
 
 /**
 *------------------------------------------------------------------------------------
@@ -1225,11 +1238,89 @@ a.toggle-nav:hover span {
 .hover-tile-outer {
   background-position: top;
   background-size: cover;
-  background-color: beige;
   border: 2px solid #DDD;
   cursor: pointer;
   height: 18em;
   margin-bottom: 26px; }
+  .hover-tile-outer:first-child {
+    height: 16em;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    border: 0px solid #DDD;
+    padding: 0;
+    display: inline-block;
+    margin-top: 2em;
+    background-size: 100% auto;
+    background-position: bottom; }
+    .hover-tile-outer:first-child:last-child {
+      margin-right: 0; }
+    @media screen and (min-width: 53.75em) {
+      .hover-tile-outer:first-child {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 40.29137%;
+        height: 19em; }
+        .hover-tile-outer:first-child:last-child {
+          margin-right: 0; } }
+    .hover-tile-outer:first-child .hover-tile-container {
+      height: 16em; }
+      @media screen and (min-width: 53.75em) {
+        .hover-tile-outer:first-child .hover-tile-container {
+          height: 19em; } }
+  .hover-tile-outer:nth-child(2) {
+    height: 16em;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    border: 0px solid #DDD;
+    padding: 0;
+    display: inline-block;
+    margin-top: 2em;
+    background-size: 35% auto;
+    background-repeat: repeat-y;
+    background-position: left; }
+    @media screen and (min-width: 53.75em) {
+      .hover-tile-outer:nth-child(2) {
+        height: 19em; } }
+    .hover-tile-outer:nth-child(2):last-child {
+      margin-right: 0; }
+    @media screen and (min-width: 53.75em) {
+      .hover-tile-outer:nth-child(2) {
+        margin-left: 8.5298%;
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 40.29137%; }
+        .hover-tile-outer:nth-child(2):last-child {
+          margin-right: 0; } }
+    .hover-tile-outer:nth-child(2) .hover-tile-container {
+      height: 16em; }
+      @media screen and (min-width: 53.75em) {
+        .hover-tile-outer:nth-child(2) .hover-tile-container {
+          height: 19em; } }
+    .hover-tile-outer:nth-child(2) p {
+      color: rgba(255, 255, 255, 0.7);
+      text-align: right;
+      float: right;
+      width: 65%; }
+      .hover-tile-outer:nth-child(2) p.portfolio-meta {
+        padding-bottom: 0;
+        padding-top: 0; }
+    .hover-tile-outer:nth-child(2) a h2, .hover-tile-outer:nth-child(2) span {
+      text-align: right;
+      float: right;
+      width: 65%; }
+    .hover-tile-outer:nth-child(2) h4, .hover-tile-outer:nth-child(2) h5 {
+      margin-bottom: 0.25em;
+      text-align: right;
+      float: right;
+      width: 65%; }
+    .hover-tile-outer:nth-child(2) h5 {
+      margin-top: 0; }
   .hover-tile-outer h4 {
     margin: 0; }
   .hover-tile-outer p {
@@ -1303,7 +1394,7 @@ article.portfolio figure img {
 header.navigation {
   background-color: transparent;
   border-bottom: 1px solid transparent;
-  min-height: 60px;
+  min-height: 48px;
   width: 100%;
   z-index: 999; }
   header.navigation a {
@@ -1331,7 +1422,7 @@ header.navigation {
     display: block;
     float: right;
     font-weight: 700;
-    line-height: 60px;
+    line-height: 48px;
     margin: 0;
     padding-right: 1em;
     text-transform: uppercase; }
@@ -1347,7 +1438,7 @@ header.navigation {
       color: rgba(18, 15, 135, 0.5); }
   header.navigation nav {
     float: none;
-    min-height: 60px; }
+    min-height: 48px; }
     header.navigation nav a.toggle-nav {
       position: absolute;
       z-index: 99999999;
@@ -1389,7 +1480,8 @@ header.navigation {
   header.navigation ul li.nav-link {
     background: #222;
     display: block;
-    line-height: 60px;
+    line-height: 48px;
+    line-height: 52px;
     overflow: hidden;
     padding-left: 0em;
     padding-right: 0.8em;
@@ -1400,20 +1492,20 @@ header.navigation {
       header.navigation ul li.nav-link {
         background: transparent;
         display: inline;
-        line-height: 60px;
+        line-height: 56px;
         text-decoration: none;
         width: auto; }
         header.navigation ul li.nav-link:first-child {
           padding-left: 6em; } }
     header.navigation ul li.nav-link a {
-      color: rgba(255, 255, 255, 0.7);
+      color: #fff;
       display: inline-block;
       font-weight: 400; }
       @media screen and (min-width: 45em) {
         header.navigation ul li.nav-link a {
           padding-right: 1em; } }
       header.navigation ul li.nav-link a:focus, header.navigation ul li.nav-link a:hover {
-        color: white; }
+        color: rgba(255, 255, 255, 0.7); }
   header.navigation .active-nav-item a {
     border-bottom: 1px solid rgba(18, 15, 135, 0.5);
     padding-bottom: 3px; }
@@ -1475,7 +1567,7 @@ header.navigation {
       padding-right: 0; }
       @media screen and (min-width: 45em) {
         header.navigation ul.submenu li {
-          line-height: 46.15385px; }
+          line-height: 36.92308px; }
           header.navigation ul.submenu li:first-child > a {
             border-top-left-radius: 3px;
             border-top-right-radius: 3px; }
@@ -1498,7 +1590,7 @@ header.navigation {
     background: #505050;
     clear: both;
     display: block;
-    height: 60px;
+    height: 48px;
     padding-left: 0.5em;
     padding-right: 1em; }
     @media screen and (min-width: 53.75em) {

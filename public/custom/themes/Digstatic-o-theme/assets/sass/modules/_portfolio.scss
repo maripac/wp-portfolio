@@ -34,8 +34,101 @@ a.toggle-nav{
 
 
 .hover-tile-outer {
- 
 
+ 
+    &:first-child{
+      
+     // @include media($large-screen) {
+        height:16em;
+        @include span-columns(8);
+        border: 0px solid $base-border-color;
+        @include media($large-screen) {
+        //@include shift(1);
+         @include span-columns(5);
+         height:19em;
+      }
+        padding:0;
+        display: inline-block;
+        margin-top:2em;
+        background-size: 100% auto;
+           background-position: bottom;
+      //}
+      .hover-tile-container {
+         // @include media($large-screen) {
+           height:16em; 
+           @include media($large-screen) {
+        height:19em;
+      }
+          //}
+      }
+    }
+    &:nth-child(2){
+      height:16em;
+     // @include media($large-screen) {
+       @include media($large-screen) {
+        height:19em;
+      }
+        
+        @include span-columns(8);
+        @include media($large-screen) {
+        @include shift(1);
+         @include span-columns(5);
+      }
+        border: 0px solid $base-border-color;
+        padding:0;
+        display: inline-block;
+       margin-top:2em;
+        background-size: 35% auto;
+        background-repeat:repeat-y;
+        background-position: left;
+     // }
+      .hover-tile-container {
+         // @include media($large-screen) {
+           height:16em; 
+         // }
+          @include media($large-screen) {
+        height:19em;
+      }
+      }
+          p {
+            &.portfolio-meta{
+              padding-bottom: 0;
+                padding-top: 0;
+            }
+            color: transparentize(#fff, 0.3);
+            //@include media($large-screen) {
+             text-align: right;
+             float: right;
+             width: 65%;
+            //}
+          }
+          a h2, span{
+            //@include media($large-screen) {
+             text-align: right;
+             float: right;
+             width: 65%;
+            //}
+
+          }
+
+          h4, h5{
+            margin-bottom: 0.25em;
+             // @include media($large-screen) {
+                text-align: right;
+                float: right;
+                width: 65%;
+              //}
+          }
+          h5{
+            margin-top: 0;
+          }
+    }
+    //&:nth-child(2){
+    //  height:6em;
+    //    .hover-tile-container {
+    //     height:6em;  
+    //    }
+    //}
  
   h4 {
     margin: 0;
@@ -48,7 +141,7 @@ a.toggle-nav{
   //background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png");
   background-position: top;
   background-size: cover;
-  background-color: beige;
+ // background-color: beige;
   border: 2px solid $base-border-color;
   cursor: pointer;
   height: $hover-tile-height;
@@ -74,6 +167,7 @@ a.toggle-nav{
     height: $hover-tile-height;
     overflow: hidden;
     background: transparentize(#000, 0.9);
+
   }
 
   .hover-tile-container:hover > .hover-tile {
@@ -273,6 +367,7 @@ header.navigation {
     background: $navigation-background;
     display: block;
     line-height: $navigation-height;
+    line-height: 52px;
     overflow: hidden;
     padding-left: 0em;
     padding-right: 0.8em;
@@ -283,7 +378,8 @@ header.navigation {
     @include media ($horizontal-bar-mode) {
       background: transparent;
       display: inline;
-      line-height: $navigation-height;
+      //line-height: $navigation-height;
+     line-height: 56px;
       text-decoration: none;
       width: auto;
       &:first-child{
@@ -292,7 +388,7 @@ header.navigation {
     }
 
     a {
-      color: $navigation-color;
+      color: #fff;
       display: inline-block;
       font-weight: 400;
 
@@ -302,7 +398,7 @@ header.navigation {
 
       &:focus,
       &:hover {
-        color: $navigation-color-hover;
+        color: $navigation-color;
       }
     }
   }

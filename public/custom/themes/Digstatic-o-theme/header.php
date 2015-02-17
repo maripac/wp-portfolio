@@ -337,12 +337,16 @@ if ( ! is_page_template( 'template-grid-images.php' ) && ! is_front_page() ) {	?
 
 	<div class="site-header" role="banner">
 		<div class="container header-contents">
+
 			<?php if  (is_page('About') ) { ?>
 					<!--<img class="portada portfolio" src="<?php echo $img_assets; ?>/comet-mcnaught-001.jpg" />-->
-					<img class="portada about" src="<?php echo $img_assets; ?>/head-009390.jpg" />
-					
+					<!--<img class="portada about" src="<?php echo $img_assets; ?>/head-009390.jpg" />-->
+					<img class="portada portfolio" src="<?php echo $img_assets; ?>/cabecera.jpg" />
+				<?php } else if ( is_post_type_archive( 'portfolio') ) { ?>	
+				<img class="portada portfolio archive" src="<?php echo $img_assets; ?>/cabecera-neutra-60.jpg" />
 				<?php } else { ?>
-					<img class="portada portfolio" src="<?php echo $img_assets; ?>/head-009390.jpg" />
+				<img class="portada portfolio" src="<?php echo $img_assets; ?>/cabecera.jpg" />
+					<!--<img class="portada portfolio" src="<?php echo $img_assets; ?>/head-009390.jpg" />-->
 			<?php } ?>
 			<header class="navigation navigation-fixed" role="banner">
 		    	<div class="navigation-wrapper">
@@ -406,7 +410,7 @@ if ( ! is_page_template( 'template-grid-images.php' ) && ! is_front_page() ) {	?
 			  </div>
 			</header>
 			<!--<div class="row top-nav-row">-->
-
+<?php if ( ! is_post_type_archive( 'portfolio') ) { ?>
 				<?php wp_nav_menu( array( 
 				    'container' => 'none', 
 				    'theme_location' => 'top_header_crum',
@@ -414,7 +418,7 @@ if ( ! is_page_template( 'template-grid-images.php' ) && ! is_front_page() ) {	?
 				    'items_wrap' => '<div id="breadcrumb-%1$s" class="%2$s">%3$s</div>'
 				) ); ?>
 			<!--</div>-->
-
+<?php } ?>
 		</div> <!-- end container -->
 	</div> <!-- end site-header -->
 
